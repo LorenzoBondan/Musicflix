@@ -1,0 +1,200 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F8DEF9AD-6870-4981-A4B8-8305E54E57D7}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Music_Flix</RootNamespace>
+    <AssemblyName>Music_Flix</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.SqlServerCe, Version=4.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Program Files\Microsoft SQL Server Compact Edition\v4.0\Desktop\System.Data.SqlServerCe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Dtos\AlbumDTO.cs" />
+    <Compile Include="Dtos\AuthorDTO.cs" />
+    <Compile Include="Dtos\MusicDTO.cs" />
+    <Compile Include="Dtos\ReviewDTO.cs" />
+    <Compile Include="Dtos\StyleDTO.cs" />
+    <Compile Include="Dtos\UserDTO.cs" />
+    <Compile Include="Dtos\UserInsertDTO.cs" />
+    <Compile Include="Entities\Album.cs" />
+    <Compile Include="Entities\Author.cs" />
+    <Compile Include="Entities\Music.cs" />
+    <Compile Include="Entities\Review.cs" />
+    <Compile Include="Entities\Style.cs" />
+    <Compile Include="Entities\User.cs" />
+    <Compile Include="View\Admin\frmAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Admin\frmAdmin.Designer.cs">
+      <DependentUpon>frmAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\AlbumRepository.cs" />
+    <Compile Include="Repositories\AuthorRepository.cs" />
+    <Compile Include="Repositories\MusicRepository.cs" />
+    <Compile Include="Repositories\ReviewRepository.cs" />
+    <Compile Include="Repositories\StyleRepository.cs" />
+    <Compile Include="Repositories\UserRepository.cs" />
+    <Compile Include="View\Admin\frmAdminAlbum.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Admin\frmAdminAlbum.Designer.cs">
+      <DependentUpon>frmAdminAlbum.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Admin\frmAdminAlbumAuthor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Admin\frmAdminAlbumAuthor.Designer.cs">
+      <DependentUpon>frmAdminAlbumAuthor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Admin\frmAdminAuthor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Admin\frmAdminAuthor.Designer.cs">
+      <DependentUpon>frmAdminAuthor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Admin\frmAdminMusic.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Admin\frmAdminMusic.Designer.cs">
+      <DependentUpon>frmAdminMusic.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Admin\frmAdminMusicAuthor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Admin\frmAdminMusicAuthor.Designer.cs">
+      <DependentUpon>frmAdminMusicAuthor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Admin\frmAdminStyles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Admin\frmAdminStyles.Designer.cs">
+      <DependentUpon>frmAdminStyles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Admin\frmAdminUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Admin\frmAdminUser.Designer.cs">
+      <DependentUpon>frmAdminUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Details\frmAuthorDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Details\frmAuthorDetails.Designer.cs">
+      <DependentUpon>frmAuthorDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Details\frmMusicDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Details\frmMusicDetails.Designer.cs">
+      <DependentUpon>frmMusicDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Home\frmHome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Home\frmHome.Designer.cs">
+      <DependentUpon>frmHome.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="View\Admin\frmAdmin.resx">
+      <DependentUpon>frmAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="View\Admin\frmAdminAlbum.resx">
+      <DependentUpon>frmAdminAlbum.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Admin\frmAdminAlbumAuthor.resx">
+      <DependentUpon>frmAdminAlbumAuthor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Admin\frmAdminAuthor.resx">
+      <DependentUpon>frmAdminAuthor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Admin\frmAdminMusic.resx">
+      <DependentUpon>frmAdminMusic.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Admin\frmAdminMusicAuthor.resx">
+      <DependentUpon>frmAdminMusicAuthor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Admin\frmAdminStyles.resx">
+      <DependentUpon>frmAdminStyles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Admin\frmAdminUser.resx">
+      <DependentUpon>frmAdminUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Details\frmAuthorDetails.resx">
+      <DependentUpon>frmAuthorDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Details\frmMusicDetails.resx">
+      <DependentUpon>frmMusicDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Home\frmHome.resx">
+      <DependentUpon>frmHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="View\Login\" />
+    <Folder Include="View\Profile\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
