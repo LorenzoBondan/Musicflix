@@ -34,20 +34,19 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnSair = new System.Windows.Forms.Button();
+            this.lblUsername = new System.Windows.Forms.Label();
+            this.userPictureBox = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txtName = new System.Windows.Forms.TextBox();
             this.cbStyle = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.userPictureBox = new System.Windows.Forms.PictureBox();
-            this.lblUsername = new System.Windows.Forms.Label();
-            this.btnSair = new System.Windows.Forms.Button();
-            this.labelResultado = new System.Windows.Forms.Label();
             this.btnClearFilters = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Explicit = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -57,12 +56,13 @@
             this.StyleId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AlbumId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AverageScore = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.labelResultado = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.userPictureBox)).BeginInit();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.userPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -77,6 +77,32 @@
             this.panel1.Size = new System.Drawing.Size(1219, 57);
             this.panel1.TabIndex = 0;
             // 
+            // btnSair
+            // 
+            this.btnSair.Location = new System.Drawing.Point(1132, 19);
+            this.btnSair.Name = "btnSair";
+            this.btnSair.Size = new System.Drawing.Size(75, 23);
+            this.btnSair.TabIndex = 88;
+            this.btnSair.Text = "Sair";
+            this.btnSair.UseVisualStyleBackColor = true;
+            // 
+            // lblUsername
+            // 
+            this.lblUsername.AutoSize = true;
+            this.lblUsername.Location = new System.Drawing.Point(62, 24);
+            this.lblUsername.Name = "lblUsername";
+            this.lblUsername.Size = new System.Drawing.Size(55, 13);
+            this.lblUsername.TabIndex = 87;
+            this.lblUsername.Text = "userName";
+            // 
+            // userPictureBox
+            // 
+            this.userPictureBox.Location = new System.Drawing.Point(12, 12);
+            this.userPictureBox.Name = "userPictureBox";
+            this.userPictureBox.Size = new System.Drawing.Size(44, 40);
+            this.userPictureBox.TabIndex = 87;
+            this.userPictureBox.TabStop = false;
+            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.label3);
@@ -85,6 +111,23 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(804, 151);
             this.panel2.TabIndex = 1;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(380, 120);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(47, 13);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "Musicflix";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(301, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(203, 114);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // txtName
             // 
@@ -116,14 +159,15 @@
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             // 
-            // label1
+            // btnClearFilters
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(20, 30);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(66, 13);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Music Name";
+            this.btnClearFilters.Location = new System.Drawing.Point(687, 25);
+            this.btnClearFilters.Name = "btnClearFilters";
+            this.btnClearFilters.Size = new System.Drawing.Size(111, 23);
+            this.btnClearFilters.TabIndex = 7;
+            this.btnClearFilters.Text = "Clear Filters";
+            this.btnClearFilters.UseVisualStyleBackColor = true;
+            this.btnClearFilters.Click += new System.EventHandler(this.btnClearFilters_Click);
             // 
             // label2
             // 
@@ -133,6 +177,15 @@
             this.label2.Size = new System.Drawing.Size(61, 13);
             this.label2.TabIndex = 6;
             this.label2.Text = "Music Style";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(20, 30);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(66, 13);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Music Name";
             // 
             // dataGridView1
             // 
@@ -190,70 +243,7 @@
             this.dataGridView1.ShowRowErrors = false;
             this.dataGridView1.Size = new System.Drawing.Size(804, 288);
             this.dataGridView1.TabIndex = 86;
-            this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(301, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(203, 114);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(380, 120);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(47, 13);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "Musicflix";
-            // 
-            // userPictureBox
-            // 
-            this.userPictureBox.Location = new System.Drawing.Point(12, 12);
-            this.userPictureBox.Name = "userPictureBox";
-            this.userPictureBox.Size = new System.Drawing.Size(44, 40);
-            this.userPictureBox.TabIndex = 87;
-            this.userPictureBox.TabStop = false;
-            // 
-            // lblUsername
-            // 
-            this.lblUsername.AutoSize = true;
-            this.lblUsername.Location = new System.Drawing.Point(62, 24);
-            this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(55, 13);
-            this.lblUsername.TabIndex = 87;
-            this.lblUsername.Text = "userName";
-            // 
-            // btnSair
-            // 
-            this.btnSair.Location = new System.Drawing.Point(1132, 19);
-            this.btnSair.Name = "btnSair";
-            this.btnSair.Size = new System.Drawing.Size(75, 23);
-            this.btnSair.TabIndex = 88;
-            this.btnSair.Text = "Sair";
-            this.btnSair.UseVisualStyleBackColor = true;
-            // 
-            // labelResultado
-            // 
-            this.labelResultado.AutoSize = true;
-            this.labelResultado.ForeColor = System.Drawing.Color.Green;
-            this.labelResultado.Location = new System.Drawing.Point(204, 599);
-            this.labelResultado.Name = "labelResultado";
-            this.labelResultado.Size = new System.Drawing.Size(77, 13);
-            this.labelResultado.TabIndex = 87;
-            this.labelResultado.Text = "labelResultado";
-            // 
-            // btnClearFilters
-            // 
-            this.btnClearFilters.Location = new System.Drawing.Point(687, 25);
-            this.btnClearFilters.Name = "btnClearFilters";
-            this.btnClearFilters.Size = new System.Drawing.Size(111, 23);
-            this.btnClearFilters.TabIndex = 7;
-            this.btnClearFilters.Text = "Clear Filters";
-            this.btnClearFilters.UseVisualStyleBackColor = true;
-            this.btnClearFilters.Click += new System.EventHandler(this.btnClearFilters_Click);
+            this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             // 
             // Id
             // 
@@ -313,6 +303,16 @@
             this.AverageScore.Name = "AverageScore";
             this.AverageScore.ReadOnly = true;
             // 
+            // labelResultado
+            // 
+            this.labelResultado.AutoSize = true;
+            this.labelResultado.ForeColor = System.Drawing.Color.Green;
+            this.labelResultado.Location = new System.Drawing.Point(204, 599);
+            this.labelResultado.Name = "labelResultado";
+            this.labelResultado.Size = new System.Drawing.Size(77, 13);
+            this.labelResultado.TabIndex = 87;
+            this.labelResultado.Text = "labelResultado";
+            // 
             // frmHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -330,13 +330,13 @@
             this.Text = "Home";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.userPictureBox)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.userPictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

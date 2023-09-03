@@ -93,16 +93,29 @@ namespace Music_Flix.View.Details
             }
         }
 
-        private void dataGridView2_SelectionChanged(object sender, EventArgs e)
+        private void dataGridView2_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             try
             {
-                frmAuthorDetails f = new frmAuthorDetails((int)dataGridView2.SelectedRows[0].Cells[0].Value);
-                f.Show();
+                if (e.RowIndex >= 0 && e.RowIndex < dataGridView2.Rows.Count)
+                {
+                    DataGridViewRow selectedRow = dataGridView2.Rows[e.RowIndex];
+                    string idCellValue = selectedRow.Cells[0].Value.ToString();
+
+                    if (int.TryParse(idCellValue, out int authorId))
+                    {
+                        frmAuthorDetails f = new frmAuthorDetails(authorId);
+                        f.Show();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Valor da célula 'Id' não é um número inteiro válido.");
+                    }
+                }
             }
-            catch (System.Exception)
+            catch (System.Exception ex)
             {
-                //
+                MessageBox.Show("Ocorreu um erro: " + ex.Message);
             }
         }
     }

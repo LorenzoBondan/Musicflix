@@ -6,12 +6,14 @@ using System.Data.SqlServerCe;
 using System.Data;
 using System.Windows.Forms;
 using System.IO;
+using System.Xml.Linq;
 
 namespace Music_Flix.Repositories
 {
     public class AuthorRepository
     {
-        
+        private StyleRepository styleRepository = new StyleRepository();
+        private AlbumRepository albumRepository = new AlbumRepository();
 
         public void CreateDatabase()
         {
@@ -137,21 +139,22 @@ namespace Music_Flix.Repositories
 
                 comando.Dispose();
 
-                // Get the musics 
+                // Get the musics in a separated method
+
+                // Get the albums 
 
                 SqlCeCommand comando2 = new SqlCeCommand();
                 comando2.Connection = conexao;
 
-                comando2.CommandText = "SELECT music_id FROM tb_music_author WHERE author_id = '" + id + "'";
+                comando2.CommandText = "SELECT album_id FROM tb_album_author WHERE author_id = '" + id + "'";
                 SqlCeDataReader reader2 = comando2.ExecuteReader();
 
                 while (reader2.Read())
                 {
-                    int musicIdEncontrada = Convert.ToInt32(reader2["music_id"]);
-                    //authorEncontrado.musics.Add(musicRepository.FindById(musicIdEncontrada));
+                    int albumIdEncontrado = Convert.ToInt32(reader2["album_id"]);
+                    authorEncontrado.albums.Add(albumRepository.FindById(albumIdEncontrado));
                 }
                 reader2.Close();
-                
             }
             catch (Exception ex)
             {
@@ -326,5 +329,46 @@ namespace Music_Flix.Repositories
                 conexao.Close();
             }
         }
+
+        public List<long> GetMusicsIds(long authorId) // separated method with musics Ids to don't throw stack over flow error
+        {
+            List<long> musicsIds = new List<long>();
+
+            string baseDados = Application.StartupPath + @"\BancoDeDados.sdf";
+            string strConnection = @"DataSource = " + baseDados + "; Password = '1234'";
+
+            SqlCeConnection conexao = new SqlCeConnection(strConnection);
+            
+            try
+            {
+                conexao.Open();
+
+                SqlCeCommand comando2 = new SqlCeCommand();
+                comando2.Connection = conexao;
+
+                comando2.CommandText = "SELECT music_id FROM tb_music_author WHERE author_id = '" + authorId + "'";
+                SqlCeDataReader reader2 = comando2.ExecuteReader();
+
+                while (reader2.Read())
+                {
+                    int musicIdEncontrada = Convert.ToInt32(reader2["music_id"]);
+                    musicsIds.Add(musicIdEncontrada);
+                }
+                reader2.Close();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                conexao.Close();
+            }
+
+            return musicsIds;
+        }
+
+
     }
 }

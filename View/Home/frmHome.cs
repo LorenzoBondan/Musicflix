@@ -81,7 +81,7 @@ namespace Music_Flix.View.Home
             musicRepository.FindAll(dataGridView1);
         }
 
-        private void dataGridView1_SelectionChanged(object sender, System.EventArgs e)
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             try
             {

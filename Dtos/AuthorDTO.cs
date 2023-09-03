@@ -11,9 +11,9 @@ namespace Music_Flix.Dtos
         public string imgUrl { get; set; }
         public double averageScore { get; set; }
 
-        public List<MusicDTO> musics { get; } = new List<MusicDTO>();
-        public List<AlbumDTO> albums { get; } = new List<AlbumDTO>();
-        public List<MusicDTO> topThreeMusics { get; } = new List<MusicDTO>(); // method
+        public List<long> musicsIds { get; set; } = new List<long>();
+        public List<AlbumDTO> albums { get; set; } = new List<AlbumDTO>();
+        public List<long> topThreeMusicsIds { get; set; } = new List<long>(); // method
 
         public AuthorDTO() { }
 
@@ -25,11 +25,10 @@ namespace Music_Flix.Dtos
             this.imgUrl = entity.imgUrl;
             this.averageScore = entity.getAverageScore();
 
-            this.musics.Clear();
+            this.musicsIds.Clear();
             foreach (Music music in entity.musics)
             {
-                MusicDTO musicDTO = new MusicDTO(music);
-                this.musics.Add(musicDTO);
+                this.musicsIds.Add(music.id);
             }
 
             this.albums.Clear();
@@ -39,11 +38,10 @@ namespace Music_Flix.Dtos
                 this.albums.Add(albumDTO);
             }
 
-            this.topThreeMusics.Clear();
-            foreach (Music music in entity.getTopThreeMusics())
+            this.topThreeMusicsIds.Clear();
+            foreach (MusicDTO music in entity.getTopThreeMusics())
             {
-                MusicDTO musicDTO = new MusicDTO(music);
-                this.topThreeMusics.Add(musicDTO);
+                this.topThreeMusicsIds.Add(music.id);
             }
         }
 

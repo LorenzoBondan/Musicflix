@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using Music_Flix.Dtos;
+using Music_Flix.Repositories;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Music_Flix.Entities
@@ -32,9 +34,18 @@ namespace Music_Flix.Entities
             return averageScore;
         }
 
-        public List<Music> getTopThreeMusics()
+        public List<MusicDTO> getTopThreeMusics() 
         {
-            List<Music> sortedMusics = musics.OrderByDescending(music => music.getAverageScore()).ToList();
+            AuthorRepository authorRepository = new AuthorRepository();
+            MusicRepository musicRepository = new MusicRepository();
+            List<MusicDTO> musics = new List<MusicDTO>();
+            List<long> musicsIds = authorRepository.GetMusicsIds((int)this.id);
+            foreach (long musicId in musicsIds)
+            {
+                MusicDTO music = musicRepository.FindById((int)musicId);
+                musics.Add(music);
+            }
+            List<MusicDTO> sortedMusics = musics.OrderByDescending(music => music.averageScore).ToList();
             return sortedMusics.Take(3).ToList();
         }
     }

@@ -191,7 +191,7 @@ namespace Music_Flix.Repositories
             return musics;
         }
 
-        public MusicDTO FindById(int id, Label labelResult)
+        public MusicDTO FindById(int id, Label labelResult = null)
         {
             string baseDados = Application.StartupPath + @"\BancoDeDados.sdf";
             string strConnection = @"DataSource = " + baseDados + "; Password = '1234'";
@@ -244,11 +244,17 @@ namespace Music_Flix.Repositories
             }
             catch (Exception ex)
             {
-                labelResult.Text = ex.Message;
+                if (labelResult != null)
+                {
+                    labelResult.Text = ex.Message;
+                }
             }
             finally
             {
-                labelResult.Text = musicEncontrada.name;
+                if (labelResult != null)
+                {
+                    labelResult.Text = musicEncontrada.name;
+                }
                 conexao.Close();
             }
 
