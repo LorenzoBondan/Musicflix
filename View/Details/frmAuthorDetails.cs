@@ -111,5 +111,30 @@ namespace Music_Flix.View.Details
             }
         }
 
+        private void dataGridView3_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (e.RowIndex >= 0 && e.RowIndex < dataGridView3.Rows.Count)
+                {
+                    DataGridViewRow selectedRow = dataGridView3.Rows[e.RowIndex];
+                    string idCellValue = selectedRow.Cells[0].Value.ToString();
+
+                    if (int.TryParse(idCellValue, out int albumId))
+                    {
+                        frmAlbumDetails f = new frmAlbumDetails(albumId);
+                        f.Show();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Valor da célula 'Id' não é um número inteiro válido.");
+                    }
+                }
+            }
+            catch (System.Exception ex)
+            {
+                MessageBox.Show("Ocorreu um erro: " + ex.Message);
+            }
+        }
     }
 }

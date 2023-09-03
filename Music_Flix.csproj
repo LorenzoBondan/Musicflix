@@ -119,6 +119,12 @@
     <Compile Include="View\Admin\frmAdminUser.Designer.cs">
       <DependentUpon>frmAdminUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Details\frmAlbumDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Details\frmAlbumDetails.Designer.cs">
+      <DependentUpon>frmAlbumDetails.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Details\frmAuthorDetails.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -169,6 +175,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Admin\frmAdminUser.resx">
       <DependentUpon>frmAdminUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Details\frmAlbumDetails.resx">
+      <DependentUpon>frmAlbumDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Details\frmAuthorDetails.resx">
       <DependentUpon>frmAuthorDetails.cs</DependentUpon>

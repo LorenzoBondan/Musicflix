@@ -170,5 +170,11 @@ namespace Music_Flix
             frmAuthorDetails f = new frmAuthorDetails(1);
             f.Show();
         }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            frmAlbumDetails f = new frmAlbumDetails(1);
+            f.Show();
+        }
     }
 }

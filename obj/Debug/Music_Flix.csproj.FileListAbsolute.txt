@@ -21,3 +21,4 @@ C:\Projeto_Tematico\Music_Flix\obj\Debug\Music_Flix.frmAdmin.resources
 C:\Projeto_Tematico\Music_Flix\obj\Debug\Music_Flix.View.Home.frmHome.resources
 C:\Projeto_Tematico\Music_Flix\obj\Debug\Music_Flix.View.Details.frmMusicDetails.resources
 C:\Projeto_Tematico\Music_Flix\obj\Debug\Music_Flix.View.Details.frmAuthorDetails.resources
+C:\Projeto_Tematico\Music_Flix\obj\Debug\Music_Flix.View.Details.frmAlbumDetails.resources

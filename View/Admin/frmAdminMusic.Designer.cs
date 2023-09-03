@@ -383,10 +383,10 @@
             // 
             // AuthorId
             // 
-            this.AuthorId.HeaderText = "AuthorId";
+            this.AuthorId.HeaderText = "AlbumId";
             this.AuthorId.Name = "AuthorId";
             this.AuthorId.ReadOnly = true;
-            this.AuthorId.Width = 78;
+            this.AuthorId.Width = 77;
             // 
             // AverageScore
             // 

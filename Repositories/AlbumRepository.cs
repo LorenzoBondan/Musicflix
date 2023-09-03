@@ -305,6 +305,45 @@ namespace Music_Flix.Repositories
             }
         }
 
+        public List<long> GetMusicsIds(long albumId) // separated method with musics Ids to don't throw stack over flow error
+        {
+            List<long> musicsIds = new List<long>();
+
+            string baseDados = Application.StartupPath + @"\BancoDeDados.sdf";
+            string strConnection = @"DataSource = " + baseDados + "; Password = '1234'";
+
+            SqlCeConnection conexao = new SqlCeConnection(strConnection);
+
+            try
+            {
+                conexao.Open();
+
+                SqlCeCommand comando2 = new SqlCeCommand();
+                comando2.Connection = conexao;
+
+                comando2.CommandText = "SELECT m.id as music FROM tb_music m INNER JOIN tb_album a ON m.albumId = a.id WHERE a.id = '" + albumId +"' ";
+                SqlCeDataReader reader2 = comando2.ExecuteReader();
+
+                while (reader2.Read())
+                {
+                    int musicIdEncontrada = Convert.ToInt32(reader2["music"]);
+                    musicsIds.Add(musicIdEncontrada);
+                }
+                reader2.Close();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                conexao.Close();
+            }
+
+            return musicsIds;
+        }
+
         // ######### Album - Author Relation Many To Many
 
         public void CreateAlbumAuthorDatabase()
