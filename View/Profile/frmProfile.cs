@@ -7,7 +7,6 @@ using System.Drawing;
 using System.IO;
 using System.Net;
 using System.Windows.Forms;
-using System.Xml.Linq;
 
 namespace Music_Flix.View.Profile
 {
@@ -15,6 +14,8 @@ namespace Music_Flix.View.Profile
     {
         private UserRepository repository = new UserRepository();
         private ReviewRepository reviewRepository = new ReviewRepository();
+        private MusicRepository musicRepository = new MusicRepository();
+
         public User userLogged;
 
         public frmProfile(User user)
@@ -29,6 +30,7 @@ namespace Music_Flix.View.Profile
             LoadUserProfilePicture(user.imgUrl);
 
             FillReviewsDataGridView(user.id, dataGridView2);
+            FillFavoritedMusicsDataGridView(user.id, dataGridView1);
 
             #region CUSTOMIZAÇÃO DO DATAGRID
             // Linhas alternadas
@@ -96,6 +98,17 @@ namespace Music_Flix.View.Profile
             foreach (ReviewDTO review in reviews)
             {
                 dataGridView.Rows.Add(review.id, review.text, review.moment, review.score, review.userId, review.musicId);
+            }
+        }
+
+        public void FillFavoritedMusicsDataGridView(int userId, DataGridView dataGridView)
+        {
+            List<long> musicsIds = repository.GetUserFavoritedMusicsIds(userId);
+            dataGridView.Rows.Clear();
+            foreach (long musicId in musicsIds)
+            {
+                MusicDTO music = musicRepository.FindById((int)musicId);
+                dataGridView.Rows.Add(music.id, music.name, music.isExplicit, music.year, music.minutes, music.seconds, music.styleId, music.albumId, music.averageScore);
             }
         }
     }

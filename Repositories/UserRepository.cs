@@ -369,7 +369,7 @@ namespace Music_Flix.Repositories
             }
         }
 
-        public void InsertUserMusic(int userId, int musicId, Action<DataGridView> findAll, DataGridView dataGridView, Label labelResult)
+        public void InsertUserMusic(int userId, int musicId, Label labelResult)
         {
             string baseDados = Application.StartupPath + @"\BancoDeDados.sdf";
             string strConection = @"DataSource = " + baseDados + "; Password = '1234'";
@@ -396,7 +396,6 @@ namespace Music_Flix.Repositories
             finally
             {
                 conexao.Close();
-                findAll(dataGridView);
             }
         }
 
@@ -433,6 +432,60 @@ namespace Music_Flix.Repositories
                     findAll(dataGridView);
                 }
             }
+        }
+
+        public List<long> GetUserFavoritedMusicsIds(int userId, DataGridView dataGridView = null)
+        {
+            List<long> musicsIds = new List<long>();
+
+            if (dataGridView != null)
+            {
+                dataGridView.Rows.Clear();
+            }
+
+            string baseDados = Application.StartupPath + @"\BancoDeDados.sdf";
+            string strConnection = @"DataSource = " + baseDados + ";Password = '1234'";
+
+            SqlCeConnection conexao = new SqlCeConnection(strConnection);
+
+            try
+            {
+                string query = "SELECT music_id FROM tb_user_music WHERE user_id = '" + userId + "' ";
+
+                DataTable dados = new DataTable();
+
+                SqlCeDataAdapter adaptador = new SqlCeDataAdapter(query, strConnection);
+
+                conexao.Open();
+
+                adaptador.Fill(dados);
+
+                foreach (DataRow linha in dados.Rows)
+                {
+                    long musicDTO = Convert.ToInt32(linha["music_id"]);
+                    musicsIds.Add(musicDTO);
+
+                    if (dataGridView != null)
+                    {
+                        dataGridView.Rows.Add(linha.ItemArray);
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                if (dataGridView != null)
+                {
+                    dataGridView.Rows.Clear();
+                }
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                conexao.Close();
+            }
+
+            return musicsIds;
         }
     }
 }

@@ -110,6 +110,7 @@
             this.btnAddAsFavorite.TabIndex = 6;
             this.btnAddAsFavorite.Text = "Add Music as Favorite";
             this.btnAddAsFavorite.UseVisualStyleBackColor = true;
+            this.btnAddAsFavorite.Click += new System.EventHandler(this.btnAddAsFavorite_Click);
             // 
             // lblMusicAlbum
             // 

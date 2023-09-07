@@ -16,6 +16,7 @@ namespace Music_Flix.View.Details
         private AuthorRepository authorRepository = new AuthorRepository();
         private AlbumRepository albumRepository = new AlbumRepository();
         private ReviewRepository reviewRepository = new ReviewRepository();
+        private UserRepository userRepository = new UserRepository();
 
         public int musicId, userLoggedId;
         public MusicDTO music;
@@ -164,6 +165,16 @@ namespace Music_Flix.View.Details
             review.moment = DateTime.Now.ToString();
             reviewRepository.Insert(review, labelResult: labelResult);
             FillReviewsDataGridView((int)music.id, dataGridView1);
+        }
+
+        private void AddMusicAsFavorite(int musicId, int userId)
+        {
+            
+        }
+
+        private void btnAddAsFavorite_Click(object sender, EventArgs e)
+        {
+            userRepository.InsertUserMusic(userLoggedId, musicId, labelResult);
         }
 
         private void btnSend_Click(object sender, EventArgs e)

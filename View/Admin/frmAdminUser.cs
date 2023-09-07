@@ -14,6 +14,7 @@ namespace Music_Flix.View
         {
             InitializeComponent();
             //repository.CreateDatabase();
+            //repository.CreateUserMusicDatabase();
             repository.FindAll(dataGridView1);
 
             #region CUSTOMIZAÇÃO DO DATAGRID
