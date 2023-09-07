@@ -17,7 +17,7 @@ namespace Music_Flix.View
         public frmAdminMusic()
         {
             InitializeComponent();
-            repository.CreateDatabase();
+            //repository.CreateDatabase();
             repository.FindAll(dataGridView1);
             FillStyleComboBox(cbStyle);
             FillAlbumComboBox(cbAlbum);
@@ -63,6 +63,7 @@ namespace Music_Flix.View
                 musicDTO.albumId = albumId;
             }
             repository.Insert(musicDTO, dataGridView1, labelResultado);
+            ClearFields();
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
@@ -85,6 +86,7 @@ namespace Music_Flix.View
                     musicDTO.albumId = albumId;
                 }
                 repository.Update(musicDTO, dataGridView1, labelResultado);
+                ClearFields();
             }
             else
             {
@@ -149,6 +151,18 @@ namespace Music_Flix.View
             comboBox.DataSource = albums;
             comboBox.DisplayMember= "name";
             comboBox.ValueMember = "id";
+        }
+
+        private void ClearFields()
+        {
+            txtName.Text = "";
+            txtYear.Text = "";
+            txtMinutes.Text = "";
+            txtSeconds.Text = "";
+            cbAlbum.SelectedItem = null;
+            cbStyle.SelectedItem = null;
+            cbExplicit.Checked = false;
+            txtName.Focus();
         }
     }
 }

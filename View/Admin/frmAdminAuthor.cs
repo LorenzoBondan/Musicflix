@@ -13,7 +13,7 @@ namespace Music_Flix.View
         public frmAdminAuthor()
         {
             InitializeComponent();
-            repository.CreateDatabase();
+            //repository.CreateDatabase();
             repository.FindAll(dataGridView1);
 
             #region CUSTOMIZAÇÃO DO DATAGRID
@@ -47,6 +47,7 @@ namespace Music_Flix.View
             albumDTO.birthDate = txtBirthDate.Text;
             albumDTO.imgUrl = txtImgUrl.Text;
             repository.Insert(albumDTO, dataGridView1, labelResultado);
+            ClearFields();
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
@@ -59,6 +60,7 @@ namespace Music_Flix.View
                 authorDTO.birthDate = txtBirthDate.Text;
                 authorDTO.imgUrl = txtImgUrl.Text;
                 repository.Update(authorDTO, dataGridView1, labelResultado);
+                ClearFields();
             }
             else
             {
@@ -87,6 +89,14 @@ namespace Music_Flix.View
                 txtBirthDate.Text = string.Empty;
                 txtImgUrl.Text = string.Empty;
             }
+        }
+
+        private void ClearFields()
+        {
+            txtName.Text = "";
+            txtImgUrl.Text = "";
+            txtBirthDate.Text = "";
+            txtName.Focus();
         }
     }
 }

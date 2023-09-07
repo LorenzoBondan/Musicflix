@@ -13,7 +13,7 @@ namespace Music_Flix.View
         public frmAdminStyles()
         {
             InitializeComponent();
-            repository.CreateDatabase();
+            //repository.CreateDatabase();
             repository.FindAll(dataGridView1);
 
             #region CUSTOMIZAÇÃO DO DATAGRID
@@ -45,6 +45,7 @@ namespace Music_Flix.View
             StyleDTO styleDTO = new StyleDTO();
             styleDTO.description = txtDescription.Text;
             repository.Insert(styleDTO, dataGridView1, labelResultado);
+            ClearFields();
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
@@ -55,6 +56,7 @@ namespace Music_Flix.View
                 styleDTO.id = (int)dataGridView1.SelectedRows[0].Cells[0].Value;
                 styleDTO.description = txtDescription.Text;
                 repository.Update(styleDTO, dataGridView1, labelResultado);
+                ClearFields();
             }
             else
             {
@@ -80,6 +82,12 @@ namespace Music_Flix.View
             {
                 txtDescription.Text = string.Empty;
             }
+        }
+
+        private void ClearFields()
+        {
+            txtDescription.Text = "";
+            txtDescription.Focus();
         }
     }
 }

@@ -13,7 +13,7 @@ namespace Music_Flix.View
         public frmAdminUser()
         {
             InitializeComponent();
-            repository.CreateDatabase();
+            //repository.CreateDatabase();
             repository.FindAll(dataGridView1);
 
             #region CUSTOMIZAÇÃO DO DATAGRID

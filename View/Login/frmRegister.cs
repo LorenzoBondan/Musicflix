@@ -22,11 +22,19 @@ namespace Music_Flix.View.Login
             user.password = txtPassword.Text;
             user.imgUrl = null;
             repository.Insert(user, labelResult: labelResult);
+            ClearFields();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void ClearFields()
+        {
+            txtName.Text = "";
+            txtEmail.Text = "";
+            txtPassword.Text = "";
         }
     }
 }

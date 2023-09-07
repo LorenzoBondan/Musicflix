@@ -49,9 +49,9 @@
             this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BirthDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ImgUrl = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AverageScore = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.AverageScore = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -179,7 +179,7 @@
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AllowUserToResizeRows = false;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ControlDark;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
@@ -235,28 +235,30 @@
             this.Id.HeaderText = "Id";
             this.Id.Name = "Id";
             this.Id.ReadOnly = true;
-            this.Id.Width = 43;
             // 
             // Nome
             // 
             this.Nome.HeaderText = "Nome";
             this.Nome.Name = "Nome";
             this.Nome.ReadOnly = true;
-            this.Nome.Width = 64;
             // 
             // BirthDate
             // 
             this.BirthDate.HeaderText = "BirthDate";
             this.BirthDate.Name = "BirthDate";
             this.BirthDate.ReadOnly = true;
-            this.BirthDate.Width = 81;
             // 
             // ImgUrl
             // 
             this.ImgUrl.HeaderText = "ImgUrl";
             this.ImgUrl.Name = "ImgUrl";
             this.ImgUrl.ReadOnly = true;
-            this.ImgUrl.Width = 65;
+            // 
+            // AverageScore
+            // 
+            this.AverageScore.HeaderText = "AverageScore";
+            this.AverageScore.Name = "AverageScore";
+            this.AverageScore.ReadOnly = true;
             // 
             // panel2
             // 
@@ -275,13 +277,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(999, 49);
             this.panel1.TabIndex = 97;
-            // 
-            // AverageScore
-            // 
-            this.AverageScore.HeaderText = "AverageScore";
-            this.AverageScore.Name = "AverageScore";
-            this.AverageScore.ReadOnly = true;
-            this.AverageScore.Width = 109;
             // 
             // frmAdminAuthor
             // 

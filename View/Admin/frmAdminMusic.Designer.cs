@@ -34,6 +34,15 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Explicit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Year = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Minutes = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Seconds = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StyleId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AuthorId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AverageScore = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -55,15 +64,6 @@
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnInserir = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Explicit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Year = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Minutes = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Seconds = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.StyleId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AuthorId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AverageScore = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -75,7 +75,7 @@
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AllowUserToResizeRows = false;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ControlDark;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
@@ -127,6 +127,64 @@
             this.dataGridView1.Size = new System.Drawing.Size(981, 182);
             this.dataGridView1.TabIndex = 85;
             this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
+            // 
+            // Id
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Id.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Id.HeaderText = "Id";
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            // 
+            // Description
+            // 
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Description.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Description.HeaderText = "Descrição";
+            this.Description.Name = "Description";
+            this.Description.ReadOnly = true;
+            // 
+            // Explicit
+            // 
+            this.Explicit.HeaderText = "Explicit";
+            this.Explicit.Name = "Explicit";
+            this.Explicit.ReadOnly = true;
+            // 
+            // Year
+            // 
+            this.Year.HeaderText = "Year";
+            this.Year.Name = "Year";
+            this.Year.ReadOnly = true;
+            // 
+            // Minutes
+            // 
+            this.Minutes.HeaderText = "Minutes";
+            this.Minutes.Name = "Minutes";
+            this.Minutes.ReadOnly = true;
+            // 
+            // Seconds
+            // 
+            this.Seconds.HeaderText = "Seconds";
+            this.Seconds.Name = "Seconds";
+            this.Seconds.ReadOnly = true;
+            // 
+            // StyleId
+            // 
+            this.StyleId.HeaderText = "StyleId";
+            this.StyleId.Name = "StyleId";
+            this.StyleId.ReadOnly = true;
+            // 
+            // AuthorId
+            // 
+            this.AuthorId.HeaderText = "AlbumId";
+            this.AuthorId.Name = "AuthorId";
+            this.AuthorId.ReadOnly = true;
+            // 
+            // AverageScore
+            // 
+            this.AverageScore.HeaderText = "AverageScore";
+            this.AverageScore.Name = "AverageScore";
+            this.AverageScore.ReadOnly = true;
             // 
             // panel1
             // 
@@ -327,73 +385,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(999, 201);
             this.panel2.TabIndex = 93;
-            // 
-            // Id
-            // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Id.DefaultCellStyle = dataGridViewCellStyle2;
-            this.Id.HeaderText = "Id";
-            this.Id.Name = "Id";
-            this.Id.ReadOnly = true;
-            this.Id.Width = 43;
-            // 
-            // Description
-            // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Description.DefaultCellStyle = dataGridViewCellStyle3;
-            this.Description.HeaderText = "Descrição";
-            this.Description.Name = "Description";
-            this.Description.ReadOnly = true;
-            this.Description.Width = 85;
-            // 
-            // Explicit
-            // 
-            this.Explicit.HeaderText = "Explicit";
-            this.Explicit.Name = "Explicit";
-            this.Explicit.ReadOnly = true;
-            this.Explicit.Width = 69;
-            // 
-            // Year
-            // 
-            this.Year.HeaderText = "Year";
-            this.Year.Name = "Year";
-            this.Year.ReadOnly = true;
-            this.Year.Width = 57;
-            // 
-            // Minutes
-            // 
-            this.Minutes.HeaderText = "Minutes";
-            this.Minutes.Name = "Minutes";
-            this.Minutes.ReadOnly = true;
-            this.Minutes.Width = 74;
-            // 
-            // Seconds
-            // 
-            this.Seconds.HeaderText = "Seconds";
-            this.Seconds.Name = "Seconds";
-            this.Seconds.ReadOnly = true;
-            this.Seconds.Width = 78;
-            // 
-            // StyleId
-            // 
-            this.StyleId.HeaderText = "StyleId";
-            this.StyleId.Name = "StyleId";
-            this.StyleId.ReadOnly = true;
-            this.StyleId.Width = 68;
-            // 
-            // AuthorId
-            // 
-            this.AuthorId.HeaderText = "AlbumId";
-            this.AuthorId.Name = "AuthorId";
-            this.AuthorId.ReadOnly = true;
-            this.AuthorId.Width = 77;
-            // 
-            // AverageScore
-            // 
-            this.AverageScore.HeaderText = "AverageScore";
-            this.AverageScore.Name = "AverageScore";
-            this.AverageScore.ReadOnly = true;
-            this.AverageScore.Width = 109;
             // 
             // frmAdminMusic
             // 
