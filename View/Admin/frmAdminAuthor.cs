@@ -13,7 +13,7 @@ namespace Music_Flix.View
         public frmAdminAuthor()
         {
             InitializeComponent();
-            //repository.CreateDatabase();
+            repository.CreateDatabase();
             repository.FindAll(dataGridView1);
 
             #region CUSTOMIZAÇÃO DO DATAGRID
@@ -43,7 +43,6 @@ namespace Music_Flix.View
         private void btnInserir_Click(object sender, EventArgs e)
         {
             AuthorDTO albumDTO = new AuthorDTO();
-            albumDTO.id = (dataGridView1.Rows.Count + 1);
             albumDTO.name = txtName.Text;
             albumDTO.birthDate = txtBirthDate.Text;
             albumDTO.imgUrl = txtImgUrl.Text;

@@ -29,7 +29,7 @@ namespace Music_Flix.Repositories
                 SqlCeCommand comando = new SqlCeCommand();
                 comando.Connection = conexao;
 
-                comando.CommandText = "CREATE TABLE tb_user (id INT NOT NULL PRIMARY KEY, name NVARCHAR(60), email NVARCHAR(60) UNIQUE, password NVARCHAR(60), imgUrl NVARCHAR(256), admin NVARCHAR(3))";
+                comando.CommandText = "CREATE TABLE tb_user (id INT IDENTITY(1,1) NOT NULL PRIMARY KEY, name NVARCHAR(60), email NVARCHAR(60) UNIQUE, password NVARCHAR(60), imgUrl NVARCHAR(256), admin NVARCHAR(3))";
                 comando.ExecuteNonQuery();
                 MessageBox.Show("Table creaded");
             }
@@ -155,7 +155,7 @@ namespace Music_Flix.Repositories
             return userEncontrado;
         }
 
-        public void Insert(UserInsertDTO user, DataGridView dataGridView, Label labelResult)
+        public void Insert(UserInsertDTO user, DataGridView dataGridView = null, Label labelResult = null)
         {
             string baseDados = Application.StartupPath + @"\BancoDeDados.sdf";
             string strConection = @"DataSource = " + baseDados + "; Password = '1234'";
@@ -170,22 +170,32 @@ namespace Music_Flix.Repositories
                 comando.Connection = conexao;
 
                 string admin = "N"; // by default, user is created with nonAdmin role
-                comando.CommandText = "INSERT INTO tb_user (id, name, password, email, imgUrl, admin) " +
-                    "VALUES (" + user.id + ", '" + user.name + "' , '" + user.password + "', '" + user.email + "', '" + user.imgUrl + "', '" + admin + "')";
+                comando.CommandText = "INSERT INTO tb_user (name, password, email, imgUrl, admin) " +
+                    "VALUES ('" + user.name + "' , '" + user.password + "', '" + user.email + "', '" + user.imgUrl + "', '" + admin + "')";
 
                 comando.ExecuteNonQuery();
 
-                labelResult.Text = "Registro inserido.";
+                if (labelResult != null)
+                {
+                    labelResult.Text = "Registro inserido.";
+                }
+                
                 comando.Dispose();
             }
             catch (Exception ex)
             {
-                labelResult.Text = ex.Message;
+                if (labelResult != null)
+                {
+                    labelResult.Text = ex.Message;
+                }
             }
             finally
             {
                 conexao.Close();
-                FindAll(dataGridView);
+                if (dataGridView != null)
+                {
+                    FindAll(dataGridView);
+                }
             }
         }
 

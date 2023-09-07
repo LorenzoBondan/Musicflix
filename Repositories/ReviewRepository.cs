@@ -27,7 +27,7 @@ namespace Music_Flix.Repositories
                 comando.Connection = conexao;
 
                 comando.CommandText = "CREATE TABLE tb_review " +
-                    "(id INT NOT NULL PRIMARY KEY, " +
+                    "(id INT IDENTITY(1,1) NOT NULL PRIMARY KEY, " +
                     "text NVARCHAR(256), " +
                     "moment NVARCHAR(30), " +
                     "score INT, " +
@@ -73,8 +73,8 @@ namespace Music_Flix.Repositories
                     SqlCeCommand comando = new SqlCeCommand();
                     comando.Connection = conexao;
 
-                    comando.CommandText = "INSERT INTO tb_review (id, text, moment, score, userId, musicId) " +
-                        "VALUES (" + reviewDTO.id + ", '" + reviewDTO.text + "' , '" + reviewDTO.moment + "', '" + reviewDTO.score + "' , '" + reviewDTO.userId + "', '" + reviewDTO.musicId + "')";
+                    comando.CommandText = "INSERT INTO tb_review (text, moment, score, userId, musicId) " +
+                        "VALUES ('" + reviewDTO.text + "' , '" + reviewDTO.moment + "', '" + reviewDTO.score + "' , '" + reviewDTO.userId + "', '" + reviewDTO.musicId + "')";
 
                     comando.ExecuteNonQuery();
 

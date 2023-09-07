@@ -14,7 +14,7 @@ namespace Music_Flix.View.Login
         public frmLogin()
         {
             InitializeComponent();
-            //repository.CreateDatabase();
+            repository.CreateDatabase();
         }
 
         private void txtPassword_KeyUp(object sender, KeyEventArgs e)
@@ -82,6 +82,12 @@ namespace Music_Flix.View.Login
         private void btnLogin_Click(object sender, EventArgs e)
         {
             Login();
+        }
+
+        private void btnSignUp_Click(object sender, EventArgs e)
+        {
+            frmRegister f = new frmRegister();
+            f.ShowDialog();
         }
     }
 }

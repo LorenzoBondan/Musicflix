@@ -13,7 +13,7 @@ namespace Music_Flix.View
         public frmAdminStyles()
         {
             InitializeComponent();
-            //repository.CreateDatabase();
+            repository.CreateDatabase();
             repository.FindAll(dataGridView1);
 
             #region CUSTOMIZAÇÃO DO DATAGRID
@@ -43,7 +43,6 @@ namespace Music_Flix.View
         private void btnInserir_Click(object sender, EventArgs e)
         {
             StyleDTO styleDTO = new StyleDTO();
-            styleDTO.id = (dataGridView1.Rows.Count + 1);
             styleDTO.description = txtDescription.Text;
             repository.Insert(styleDTO, dataGridView1, labelResultado);
         }

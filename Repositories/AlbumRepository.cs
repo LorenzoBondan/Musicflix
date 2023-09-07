@@ -29,7 +29,7 @@ namespace Music_Flix.Repositories
                 SqlCeCommand comando = new SqlCeCommand();
                 comando.Connection = conexao;
 
-                comando.CommandText = "CREATE TABLE tb_album (id INT NOT NULL PRIMARY KEY, name NVARCHAR(60), year INT, imgUrl NVARCHAR(256))";
+                comando.CommandText = "CREATE TABLE tb_album (id INT IDENTITY(1,1) NOT NULL PRIMARY KEY, name NVARCHAR(60), year INT, imgUrl NVARCHAR(256))";
                 comando.ExecuteNonQuery();
                 MessageBox.Show("Table creaded");
             }
@@ -167,8 +167,8 @@ namespace Music_Flix.Repositories
                 SqlCeCommand comando = new SqlCeCommand();
                 comando.Connection = conexao;
 
-                comando.CommandText = "INSERT INTO tb_album (id, name, year, imgUrl) " +
-                    "VALUES (" + albumDTO.id + ", '" + albumDTO.name + "' , '" + albumDTO.year + "', '" + albumDTO.imgUrl + "')";
+                comando.CommandText = "INSERT INTO tb_album (name, year, imgUrl) " +
+                    "VALUES ('" + albumDTO.name + "' , '" + albumDTO.year + "', '" + albumDTO.imgUrl + "')";
 
                 comando.ExecuteNonQuery();
 

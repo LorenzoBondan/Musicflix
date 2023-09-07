@@ -15,7 +15,7 @@ namespace Music_Flix.View
         public frmAdminMusicAuthor()
         {
             InitializeComponent();
-            //musicRepository.CreateMusicAuthorDatabase();
+            musicRepository.CreateMusicAuthorDatabase();
             musicRepository.FindAllMusicAuthor(dataGridView1);
 
             FillAuthorsComboBox(cbAuthor);

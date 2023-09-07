@@ -17,7 +17,7 @@ namespace Music_Flix.View
         public frmAdminMusic()
         {
             InitializeComponent();
-            //repository.CreateDatabase();
+            repository.CreateDatabase();
             repository.FindAll(dataGridView1);
             FillStyleComboBox(cbStyle);
             FillAlbumComboBox(cbAlbum);
@@ -49,7 +49,6 @@ namespace Music_Flix.View
         private void btnInserir_Click(object sender, EventArgs e)
         {
             MusicDTO musicDTO = new MusicDTO();
-            musicDTO.id = (dataGridView1.Rows.Count + 1);
             musicDTO.name = txtName.Text;
             musicDTO.year = int.Parse(txtYear.Text);
             musicDTO.isExplicit = cbExplicit.Checked ? 'Y' : 'N';

@@ -29,7 +29,7 @@ namespace Music_Flix.Repositories
                 SqlCeCommand comando = new SqlCeCommand();
                 comando.Connection = conexao;
 
-                comando.CommandText = "CREATE TABLE tb_style (id INT NOT NULL PRIMARY KEY, description NVARCHAR(60))";
+                comando.CommandText = "CREATE TABLE tb_style (id INT IDENTITY(1,1) NOT NULL PRIMARY KEY, description NVARCHAR(60))";
                 comando.ExecuteNonQuery();
             }
             catch (Exception ex)
@@ -162,7 +162,7 @@ namespace Music_Flix.Repositories
                 SqlCeCommand comando = new SqlCeCommand();
                 comando.Connection = conexao;
 
-                comando.CommandText = "INSERT INTO tb_style (id, description) VALUES (" + styleDTO.id + ", '" + styleDTO.description + "')";
+                comando.CommandText = "INSERT INTO tb_style (description) VALUES ('" + styleDTO.description + "')";
 
                 comando.ExecuteNonQuery();
 

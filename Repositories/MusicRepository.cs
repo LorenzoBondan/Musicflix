@@ -35,7 +35,7 @@ namespace Music_Flix.Repositories
                 comando.Connection = conexao;
 
                 comando.CommandText = "CREATE TABLE tb_music " +
-                    "(id INT NOT NULL PRIMARY KEY, " +
+                    "(id INT IDENTITY(1,1) NOT NULL PRIMARY KEY, " +
                     "name NVARCHAR(60), " +
                     "isExplicit NVARCHAR(1), " +
                     "year INT, " +
@@ -275,8 +275,8 @@ namespace Music_Flix.Repositories
                 SqlCeCommand comando = new SqlCeCommand();
                 comando.Connection = conexao;
 
-                comando.CommandText = "INSERT INTO tb_music (id, name, isExplicit, year, minutes, seconds, styleId, albumId) " +
-                    "VALUES (" + musicDTO.id + ", " +
+                comando.CommandText = "INSERT INTO tb_music (name, isExplicit, year, minutes, seconds, styleId, albumId) " +
+                    "VALUES (" +
                     "'" + musicDTO.name + "', " +
                     "'" + musicDTO.isExplicit + "', " +
                     "'" + musicDTO.year + "', " +

@@ -13,7 +13,7 @@ namespace Music_Flix.View
         public frmAdminUser()
         {
             InitializeComponent();
-            //repository.CreateDatabase();
+            repository.CreateDatabase();
             repository.FindAll(dataGridView1);
 
             #region CUSTOMIZAÇÃO DO DATAGRID
@@ -43,12 +43,10 @@ namespace Music_Flix.View
         private void btnInserir_Click(object sender, EventArgs e)
         {
             UserInsertDTO userDTO = new UserInsertDTO();
-            userDTO.id = (dataGridView1.Rows.Count + 1);
             userDTO.name = txtName.Text;
             userDTO.password = txtPassword.Text;
             userDTO.email = txtEmail.Text;
             userDTO.imgUrl = txtImgUrl.Text;
-            //userDTO.admin = cbAdmin.Checked ? "YES" : "NO";
             repository.Insert(userDTO, dataGridView1, labelResultado);
         }
 

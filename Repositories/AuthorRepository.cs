@@ -33,7 +33,7 @@ namespace Music_Flix.Repositories
                 SqlCeCommand comando = new SqlCeCommand();
                 comando.Connection = conexao;
 
-                comando.CommandText = "CREATE TABLE tb_author (id INT NOT NULL PRIMARY KEY, name NVARCHAR(60), birthDate NVARCHAR(10), imgUrl NVARCHAR(256))";
+                comando.CommandText = "CREATE TABLE tb_author (id INT IDENTITY(1,1) NOT NULL PRIMARY KEY, name NVARCHAR(60), birthDate NVARCHAR(10), imgUrl NVARCHAR(256))";
                 comando.ExecuteNonQuery();
             }
             catch (Exception ex)
@@ -192,7 +192,7 @@ namespace Music_Flix.Repositories
                 SqlCeCommand comando = new SqlCeCommand();
                 comando.Connection = conexao;
 
-                comando.CommandText = "INSERT INTO tb_author (id, name, birthDate, imgUrl) VALUES (" + authorDTO.id + ", '" + authorDTO.name + "', '" + authorDTO.birthDate + "', '" + authorDTO.imgUrl + "')";
+                comando.CommandText = "INSERT INTO tb_author (name, birthDate, imgUrl) VALUES ('" + authorDTO.name + "', '" + authorDTO.birthDate + "', '" + authorDTO.imgUrl + "')";
 
                 comando.ExecuteNonQuery();
 
