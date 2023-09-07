@@ -33,6 +33,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmHome));
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnSair = new System.Windows.Forms.Button();
             this.lblUsername = new System.Windows.Forms.Label();
@@ -57,6 +58,7 @@
             this.AlbumId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AverageScore = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.labelResultado = new System.Windows.Forms.Label();
+            this.btnAdmin = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userPictureBox)).BeginInit();
             this.panel2.SuspendLayout();
@@ -68,6 +70,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.panel1.Controls.Add(this.btnAdmin);
             this.panel1.Controls.Add(this.btnSair);
             this.panel1.Controls.Add(this.lblUsername);
             this.panel1.Controls.Add(this.userPictureBox);
@@ -85,6 +88,7 @@
             this.btnSair.TabIndex = 88;
             this.btnSair.Text = "Sair";
             this.btnSair.UseVisualStyleBackColor = true;
+            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
             // 
             // lblUsername
             // 
@@ -100,8 +104,10 @@
             this.userPictureBox.Location = new System.Drawing.Point(12, 12);
             this.userPictureBox.Name = "userPictureBox";
             this.userPictureBox.Size = new System.Drawing.Size(44, 40);
+            this.userPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.userPictureBox.TabIndex = 87;
             this.userPictureBox.TabStop = false;
+            this.userPictureBox.Click += new System.EventHandler(this.userPictureBox_Click);
             // 
             // panel2
             // 
@@ -123,9 +129,11 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Image = global::Music_Flix.Properties.Resources.musicflix_logo;
             this.pictureBox1.Location = new System.Drawing.Point(301, 3);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(203, 114);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
@@ -313,6 +321,17 @@
             this.labelResultado.TabIndex = 87;
             this.labelResultado.Text = "labelResultado";
             // 
+            // btnAdmin
+            // 
+            this.btnAdmin.Enabled = false;
+            this.btnAdmin.Location = new System.Drawing.Point(1051, 19);
+            this.btnAdmin.Name = "btnAdmin";
+            this.btnAdmin.Size = new System.Drawing.Size(75, 23);
+            this.btnAdmin.TabIndex = 89;
+            this.btnAdmin.Text = "Admin";
+            this.btnAdmin.UseVisualStyleBackColor = true;
+            this.btnAdmin.Click += new System.EventHandler(this.btnAdmin_Click);
+            // 
             // frmHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -324,6 +343,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "frmHome";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -368,5 +388,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn StyleId;
         private System.Windows.Forms.DataGridViewTextBoxColumn AlbumId;
         private System.Windows.Forms.DataGridViewTextBoxColumn AverageScore;
+        private System.Windows.Forms.Button btnAdmin;
     }
 }

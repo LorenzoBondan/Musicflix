@@ -41,9 +41,11 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Image = global::Music_Flix.Properties.Resources.musicflix_logo;
             this.pictureBox1.Location = new System.Drawing.Point(134, 12);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(179, 172);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
@@ -74,7 +76,7 @@
             // 
             // btnSignUp
             // 
-            this.btnSignUp.Location = new System.Drawing.Point(134, 402);
+            this.btnSignUp.Location = new System.Drawing.Point(134, 451);
             this.btnSignUp.Name = "btnSignUp";
             this.btnSignUp.Size = new System.Drawing.Size(179, 23);
             this.btnSignUp.TabIndex = 4;
@@ -103,7 +105,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(110, 386);
+            this.label3.Location = new System.Drawing.Point(110, 435);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(227, 13);
             this.label3.TabIndex = 7;

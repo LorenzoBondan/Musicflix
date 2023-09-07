@@ -14,7 +14,7 @@ namespace Music_Flix.View.Login
         public frmLogin()
         {
             InitializeComponent();
-            repository.CreateDatabase();
+            //repository.CreateDatabase();
         }
 
         private void txtPassword_KeyUp(object sender, KeyEventArgs e)
@@ -64,10 +64,12 @@ namespace Music_Flix.View.Login
                 User user = repository.FindById(userId);
 
                 MessageBox.Show("Logado com sucesso.", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                
+
                 frmHome f = new frmHome(user);
-                f.ShowDialog();
-                Hide();
+                f.Show();
+
+                Close();
+                Dispose();
             }
             catch (Exception ex)
             {

@@ -2,10 +2,13 @@
 using Music_Flix.Entities;
 using Music_Flix.Repositories;
 using Music_Flix.View.Details;
+using Music_Flix.View.Login;
+using Music_Flix.View.Profile;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
+using System.Net;
 using System.Windows.Forms;
 
 namespace Music_Flix.View.Home
@@ -14,9 +17,11 @@ namespace Music_Flix.View.Home
     {
         private MusicRepository musicRepository = new MusicRepository();
         private StyleRepository styleRepository = new StyleRepository();
+        public User userLogged; // used to call frmProfile
 
         public frmHome(User user)
         {
+            userLogged = user;
             InitializeComponent();
             FillStyleComboBox(cbStyle);
             cbStyle.SelectedItem = null;
@@ -24,7 +29,28 @@ namespace Music_Flix.View.Home
             dataGridView1.ClearSelection();
 
             CleanFolder(Path.Combine(Application.StartupPath, "images")); // limpa a pasta das imagens geradas
-            MessageBox.Show("Olá " + user.name);
+            lblUsername.Text = user.name;
+
+            string imageUrl = user.imgUrl;
+            string localImagePath = Path.Combine(Application.StartupPath, "images", " '" + user.name + "' '" + DateTime.Now.Ticks + "'.png"); // Caminho local para salvar a imagem
+            try
+            {
+                using (WebClient webClient = new WebClient())
+                {
+                    webClient.DownloadFile(imageUrl, localImagePath);
+                }
+                userPictureBox.Image = Image.FromFile(localImagePath);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao carregar a imagem: " + ex.Message);
+            }
+
+            if (user.admin == "Y")
+            {
+                btnAdmin.Enabled = true;
+            }
+
             #region CUSTOMIZAÇÃO DO DATAGRID
             // Linhas alternadas
             dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(234, 234, 234);
@@ -119,6 +145,26 @@ namespace Music_Flix.View.Home
             {
                 MessageBox.Show("Erro ao limpar a pasta: " + ex.Message);
             }
+        }
+
+        private void userPictureBox_Click(object sender, EventArgs e)
+        {
+            frmProfile frmProfile = new frmProfile(userLogged);
+            frmProfile.Show();
+        }
+
+        private void btnSair_Click(object sender, EventArgs e)
+        {
+            Close();
+            Dispose();
+            frmLogin frmLogin = new frmLogin();
+            frmLogin.Show();
+        }
+
+        private void btnAdmin_Click(object sender, EventArgs e)
+        {
+            frmAdmin frmAdmin = new frmAdmin();
+            frmAdmin.Show();
         }
     }
 }

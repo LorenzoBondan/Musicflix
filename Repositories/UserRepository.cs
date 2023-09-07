@@ -199,7 +199,7 @@ namespace Music_Flix.Repositories
             }
         }
 
-        public void Update(UserDTO userDTO, DataGridView dataGridView, Label labelResult)
+        public void Update(UserDTO userDTO, DataGridView dataGridView = null, Label labelResult = null)
         {
             string baseDados = Application.StartupPath + @"\BancoDeDados.sdf";
             string strConnection = @"DataSource = " + baseDados + "; Password = '1234'";
@@ -218,20 +218,30 @@ namespace Music_Flix.Repositories
                     "name = '" + userDTO.name + "', " +
                     "imgUrl = '" + userDTO.imgUrl + "', " + 
                     "admin = '" + userDTO.admin + "' " +   
-                    "WHERE id = " + userDTO.id; 
+                    "WHERE email = '" + userDTO.email + "' "; 
                 comando.ExecuteNonQuery();
 
-                labelResult.Text = "Registro alterado na base de dados!";
+                if (labelResult != null)
+                {
+                    labelResult.Text = "Registro alterado na base de dados!";
+                }
+                
                 comando.Dispose();
             }
             catch (Exception ex)
             {
-                labelResult.Text = ex.Message;
+                if (labelResult != null)
+                {
+                    labelResult.Text = ex.Message;
+                }
             }
             finally
             {
                 conexao.Close();
-                FindAll(dataGridView);
+                if (dataGridView != null)
+                {
+                    FindAll(dataGridView);
+                }
             }
         }
 

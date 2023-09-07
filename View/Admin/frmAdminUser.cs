@@ -55,7 +55,6 @@ namespace Music_Flix.View
             if (dataGridView1.SelectedRows.Count > 0)
             {
                 UserDTO userDTO = new UserDTO();
-                userDTO.id = (int)dataGridView1.SelectedRows[0].Cells[0].Value;
                 userDTO.name = txtName.Text;
                 userDTO.imgUrl = txtImgUrl.Text;
                 userDTO.admin = cbAdmin.Checked ? "Y" : "N";
