@@ -27,7 +27,7 @@ namespace Music_Flix.View.Details
             lblAlbumYear.Text = album.year.ToString();
 
             string imageUrl = album.imgUrl;
-            string localImagePath = Path.Combine(Application.StartupPath, "images", " '" + album.name + "' '" + album.id + "'.png"); // Caminho local para salvar a imagem
+            string localImagePath = Path.Combine(Application.StartupPath, "images", " '" + album.name + "' '" + DateTime.Now.Ticks + "'.png"); // Caminho local para salvar a imagem
             try
             {
                 using (WebClient webClient = new WebClient())

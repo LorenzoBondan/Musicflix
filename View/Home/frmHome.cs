@@ -1,8 +1,11 @@
 ﻿using Music_Flix.Dtos;
+using Music_Flix.Entities;
 using Music_Flix.Repositories;
 using Music_Flix.View.Details;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
 
 namespace Music_Flix.View.Home
@@ -12,15 +15,16 @@ namespace Music_Flix.View.Home
         private MusicRepository musicRepository = new MusicRepository();
         private StyleRepository styleRepository = new StyleRepository();
 
-        public frmHome()
+        public frmHome(User user)
         {
             InitializeComponent();
-            
             FillStyleComboBox(cbStyle);
             cbStyle.SelectedItem = null;
             musicRepository.FindAll(dataGridView1);
             dataGridView1.ClearSelection();
 
+            CleanFolder(Path.Combine(Application.StartupPath, "images")); // limpa a pasta das imagens geradas
+            MessageBox.Show("Olá " + user.name);
             #region CUSTOMIZAÇÃO DO DATAGRID
             // Linhas alternadas
             dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(234, 234, 234);
@@ -91,6 +95,29 @@ namespace Music_Flix.View.Home
             catch (System.Exception)
             {
                 //
+            }
+        }
+
+        public static void CleanFolder(string folder)
+        {
+            try
+            {
+                if (Directory.Exists(folder))
+                {
+                    string[] files = Directory.GetFiles(folder);
+                    foreach (string file in files)
+                    {
+                        File.Delete(file);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("A pasta não existe.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao limpar a pasta: " + ex.Message);
             }
         }
     }

@@ -29,7 +29,7 @@ namespace Music_Flix.View.Details
             Album album = albumRepository.FindById((int)music.albumId, lblMusicAlbum);
 
             string imageUrl = album.imgUrl;
-            string localImagePath = Path.Combine(Application.StartupPath, "images", " '" + album.name + "'.png"); // Caminho local para salvar a imagem
+            string localImagePath = Path.Combine(Application.StartupPath, "images", " '" + album.name + "' '" + DateTime.Now.Ticks + ".png"); // Caminho local para salvar a imagem
             try
             {
                 using (WebClient webClient = new WebClient())

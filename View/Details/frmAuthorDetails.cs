@@ -24,7 +24,7 @@ namespace Music_Flix.View.Details
             lblAverageScore.Text = author.getAverageScore().ToString();
 
             string imageUrl = author.imgUrl;
-            string localImagePath = Path.Combine(Application.StartupPath, "images", " '" + author.name + "'.png"); // Caminho local para salvar a imagem
+            string localImagePath = Path.Combine(Application.StartupPath, "images", " '" + author.name + "' '" + DateTime.Now.Ticks + "'.png"); // Caminho local para salvar a imagem
             try
             {
                 using (WebClient webClient = new WebClient())

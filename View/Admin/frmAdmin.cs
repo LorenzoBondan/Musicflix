@@ -3,6 +3,7 @@ using Music_Flix.Repositories;
 using Music_Flix.View;
 using Music_Flix.View.Details;
 using Music_Flix.View.Home;
+using Music_Flix.View.Login;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
@@ -161,7 +162,7 @@ namespace Music_Flix
 
         private void button8_Click(object sender, EventArgs e)
         {
-            frmHome f = new frmHome();
+            frmHome f = new frmHome(new Entities.User());
             f.Show();
         }
 
@@ -175,6 +176,12 @@ namespace Music_Flix
         {
             frmAlbumDetails f = new frmAlbumDetails(1);
             f.Show();
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            frmLogin frmLogin = new frmLogin();
+            frmLogin.Show();
         }
     }
 }
