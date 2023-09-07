@@ -158,6 +158,12 @@
     <Compile Include="View\Login\frmRegister.Designer.cs">
       <DependentUpon>frmRegister.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Login\frmWelcome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Login\frmWelcome.Designer.cs">
+      <DependentUpon>frmWelcome.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Profile\frmProfile.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -215,6 +221,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Login\frmRegister.resx">
       <DependentUpon>frmRegister.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Login\frmWelcome.resx">
+      <DependentUpon>frmWelcome.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Profile\frmProfile.resx">
       <DependentUpon>frmProfile.cs</DependentUpon>

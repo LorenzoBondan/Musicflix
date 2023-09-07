@@ -68,8 +68,9 @@ namespace Music_Flix.View.Login
                 frmHome f = new frmHome(user);
                 f.Show();
 
-                Close();
-                Dispose();
+                Hide();
+                //Close();
+                //Dispose();
             }
             catch (Exception ex)
             {
@@ -90,6 +91,18 @@ namespace Music_Flix.View.Login
         {
             frmRegister f = new frmRegister();
             f.ShowDialog();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Close();
+            Dispose();
+        }
+
+        private void frmLogin_Leave(object sender, EventArgs e)
+        {
+            Close();
+            Dispose();
         }
     }
 }

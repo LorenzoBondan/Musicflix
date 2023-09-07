@@ -389,9 +389,9 @@ namespace Music_Flix.Repositories
                 labelResult.Text = "Registro inserido.";
                 comando.Dispose();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                labelResult.Text = ex.Message;
+                labelResult.Text = "Você já adicionou essa música como favorita.";
             }
             finally
             {

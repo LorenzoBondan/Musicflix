@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Music_Flix.View.Login;
+using System;
 using System.Windows.Forms;
 
 namespace Music_Flix
@@ -16,7 +14,7 @@ namespace Music_Flix
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmAdmin());
+            Application.Run(new frmWelcome());
         }
     }
 }

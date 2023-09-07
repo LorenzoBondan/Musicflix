@@ -25,3 +25,4 @@ C:\Projeto_Tematico\Music_Flix\obj\Debug\Music_Flix.View.Details.frmAlbumDetails
 C:\Projeto_Tematico\Music_Flix\obj\Debug\Music_Flix.View.Login.frmLogin.resources
 C:\Projeto_Tematico\Music_Flix\obj\Debug\Music_Flix.View.Login.frmRegister.resources
 C:\Projeto_Tematico\Music_Flix\obj\Debug\Music_Flix.View.Profile.frmProfile.resources
+C:\Projeto_Tematico\Music_Flix\obj\Debug\Music_Flix.View.Login.frmWelcome.resources
