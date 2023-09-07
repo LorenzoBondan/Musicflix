@@ -115,7 +115,7 @@ namespace Music_Flix.View.Home
         {
             try
             {
-                frmMusicDetails f = new frmMusicDetails((int)dataGridView1.SelectedRows[0].Cells[0].Value);
+                frmMusicDetails f = new frmMusicDetails((int)dataGridView1.SelectedRows[0].Cells[0].Value, userLogged.id);
                 f.Show();
             }
             catch (System.Exception)

@@ -10,14 +10,14 @@ namespace Music_Flix.Entities
     {
         public long id { get; set; }
         public string text { get; set; }
-        public DateTime moment { get; set; }
+        public string moment { get; set; }
         public double score { get; set; }
         public User user { get; set; }
         public Music music { get; set; }
 
         public Review() { }
 
-        public Review(long id, string text, DateTime moment, double score, Music music, User user)
+        public Review(long id, string text, string moment, double score, Music music, User user)
         {
             this.id = id;
             this.text = text;

@@ -11,7 +11,7 @@ namespace Music_Flix.Dtos
     {
         public long id { get; set; }
         public string text { get; set; }
-        public DateTime moment { get; set; }
+        public string moment { get; set; }
         public double score { get; set; }
         public long userId { get; set; }
         public long musicId { get; set; }
@@ -28,7 +28,7 @@ namespace Music_Flix.Dtos
             this.musicId = entity.music.id;
         }
 
-        public ReviewDTO(long id, string text, DateTime moment, double score, long userId, long musicId)
+        public ReviewDTO(long id, string text, string moment, double score, long userId, long musicId)
         {
             this.id = id;
             this.text = text;

@@ -17,11 +17,17 @@ namespace Music_Flix.View.Details
         private AlbumRepository albumRepository = new AlbumRepository();
         private ReviewRepository reviewRepository = new ReviewRepository();
 
-        public frmMusicDetails(int musicId)
+        public int musicId, userLoggedId;
+        public MusicDTO music;
+
+        public frmMusicDetails(int musicId, int userLoggedId)
         {
+            this.musicId = musicId;
+            this.userLoggedId = userLoggedId;
+
             InitializeComponent();
             
-            MusicDTO music = musicRepository.FindById(musicId, labelMusicName);
+            music = musicRepository.FindById(musicId, labelMusicName);
             lblMusicExplicit.Text = music.isExplicit == 'Y' ? "Explicit" : "Non explicit";
             lblMusicDuration.Text = music.minutes.ToString() + ":" + music.seconds.ToString();
             lblMusicYear.Text = music.year.ToString();
@@ -44,7 +50,7 @@ namespace Music_Flix.View.Details
             }
 
             FillAuthorsDataGridView(music.authorsIds, dataGridView2);
-            FillReviewsDataGridView(music.reviews, dataGridView1);
+            FillReviewsDataGridView((int)music.id, dataGridView1);
 
             #region CUSTOMIZAÇÃO DO DATAGRID
             // Linhas alternadas
@@ -84,8 +90,9 @@ namespace Music_Flix.View.Details
             }
         }
 
-        public void FillReviewsDataGridView(List<ReviewDTO> reviews, DataGridView dataGridView)
+        public void FillReviewsDataGridView(int musicId, DataGridView dataGridView)
         {
+            List<ReviewDTO> reviews = reviewRepository.FindAllReviewsByMusic(musicId);
             dataGridView.Rows.Clear();
             foreach (ReviewDTO review in reviews)
             {
@@ -117,6 +124,51 @@ namespace Music_Flix.View.Details
             {
                 MessageBox.Show("Ocorreu um erro: " + ex.Message);
             }
+        }
+
+        private void SendReview(int musicId, int userId)
+        {
+            ReviewDTO review = new ReviewDTO();
+            review.text = txtReview.Text;
+            if (rb0.Checked)
+            {
+                review.score = 0;
+            }
+            else if (rb1.Checked)
+            {
+                review.score = 1;
+            }
+            else if (rb2.Checked)
+            {
+                review.score = 2;
+            }
+            else if (rb3.Checked)
+            {
+                review.score = 3;
+            }
+            else if (rb4.Checked)
+            {
+                review.score = 4;
+            }
+            else if (rb5.Checked)
+            {
+                review.score = 5;
+            }
+            else
+            {
+                MessageBox.Show("Insira alguma nota.", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                throw new Exception();
+            }
+            review.userId = userId;
+            review.musicId = musicId;
+            review.moment = DateTime.Now.ToString();
+            reviewRepository.Insert(review, labelResult: labelResult);
+            FillReviewsDataGridView((int)music.id, dataGridView1);
+        }
+
+        private void btnSend_Click(object sender, EventArgs e)
+        {
+            SendReview(musicId, userLoggedId);
         }
     }
 }

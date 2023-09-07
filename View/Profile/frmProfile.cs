@@ -2,6 +2,7 @@
 using Music_Flix.Entities;
 using Music_Flix.Repositories;
 using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Net;
@@ -13,6 +14,7 @@ namespace Music_Flix.View.Profile
     public partial class frmProfile : Form
     {
         private UserRepository repository = new UserRepository();
+        private ReviewRepository reviewRepository = new ReviewRepository();
         public User userLogged;
 
         public frmProfile(User user)
@@ -25,6 +27,8 @@ namespace Music_Flix.View.Profile
             txtImgUrl.Text = user.imgUrl;
 
             LoadUserProfilePicture(user.imgUrl);
+
+            FillReviewsDataGridView(user.id, dataGridView2);
 
             #region CUSTOMIZAÇÃO DO DATAGRID
             // Linhas alternadas
@@ -83,6 +87,16 @@ namespace Music_Flix.View.Profile
             userDTO.admin = userLogged.admin;
             repository.Update(userDTO);
             LoadUserProfilePicture(userDTO.imgUrl);
+        }
+
+        public void FillReviewsDataGridView(int userId, DataGridView dataGridView)
+        {
+            List<ReviewDTO> reviews = reviewRepository.FindAllReviewsByUser(userId);
+            dataGridView.Rows.Clear();
+            foreach (ReviewDTO review in reviews)
+            {
+                dataGridView.Rows.Add(review.id, review.text, review.moment, review.score, review.userId, review.musicId);
+            }
         }
     }
 }

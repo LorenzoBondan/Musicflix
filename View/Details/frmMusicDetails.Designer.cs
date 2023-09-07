@@ -37,8 +37,10 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMusicDetails));
             this.labelMusicName = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnAddAsFavorite = new System.Windows.Forms.Button();
             this.lblMusicAlbum = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.lblMusicStyle = new System.Windows.Forms.Label();
@@ -55,20 +57,21 @@
             this.ReviewId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.rb6 = new System.Windows.Forms.RadioButton();
+            this.rb5 = new System.Windows.Forms.RadioButton();
             this.rb4 = new System.Windows.Forms.RadioButton();
             this.rb3 = new System.Windows.Forms.RadioButton();
             this.rb2 = new System.Windows.Forms.RadioButton();
             this.rb1 = new System.Windows.Forms.RadioButton();
             this.rb0 = new System.Windows.Forms.RadioButton();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.btnSend = new System.Windows.Forms.Button();
+            this.txtReview = new System.Windows.Forms.TextBox();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BirthDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ImgUrl = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AverageScore = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.labelResult = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -89,6 +92,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnAddAsFavorite);
             this.groupBox1.Controls.Add(this.lblMusicAlbum);
             this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Controls.Add(this.pictureBox1);
@@ -97,6 +101,15 @@
             this.groupBox1.Size = new System.Drawing.Size(776, 217);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
+            // 
+            // btnAddAsFavorite
+            // 
+            this.btnAddAsFavorite.Location = new System.Drawing.Point(626, 188);
+            this.btnAddAsFavorite.Name = "btnAddAsFavorite";
+            this.btnAddAsFavorite.Size = new System.Drawing.Size(144, 23);
+            this.btnAddAsFavorite.TabIndex = 6;
+            this.btnAddAsFavorite.Text = "Add Music as Favorite";
+            this.btnAddAsFavorite.UseVisualStyleBackColor = true;
             // 
             // lblMusicAlbum
             // 
@@ -117,7 +130,7 @@
             this.groupBox2.Controls.Add(this.labelMusicName);
             this.groupBox2.Location = new System.Drawing.Point(213, 19);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(547, 166);
+            this.groupBox2.Size = new System.Drawing.Size(557, 166);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             // 
@@ -267,14 +280,14 @@
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.label1);
-            this.groupBox3.Controls.Add(this.rb6);
+            this.groupBox3.Controls.Add(this.rb5);
             this.groupBox3.Controls.Add(this.rb4);
             this.groupBox3.Controls.Add(this.rb3);
             this.groupBox3.Controls.Add(this.rb2);
             this.groupBox3.Controls.Add(this.rb1);
             this.groupBox3.Controls.Add(this.rb0);
-            this.groupBox3.Controls.Add(this.button1);
-            this.groupBox3.Controls.Add(this.textBox1);
+            this.groupBox3.Controls.Add(this.btnSend);
+            this.groupBox3.Controls.Add(this.txtReview);
             this.groupBox3.Location = new System.Drawing.Point(12, 552);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(776, 70);
@@ -291,16 +304,16 @@
             this.label1.TabIndex = 8;
             this.label1.Text = "Comment";
             // 
-            // rb6
+            // rb5
             // 
-            this.rb6.AutoSize = true;
-            this.rb6.Location = new System.Drawing.Point(201, 30);
-            this.rb6.Name = "rb6";
-            this.rb6.Size = new System.Drawing.Size(31, 17);
-            this.rb6.TabIndex = 7;
-            this.rb6.TabStop = true;
-            this.rb6.Text = "5";
-            this.rb6.UseVisualStyleBackColor = true;
+            this.rb5.AutoSize = true;
+            this.rb5.Location = new System.Drawing.Point(201, 30);
+            this.rb5.Name = "rb5";
+            this.rb5.Size = new System.Drawing.Size(31, 17);
+            this.rb5.TabIndex = 7;
+            this.rb5.TabStop = true;
+            this.rb5.Text = "5";
+            this.rb5.UseVisualStyleBackColor = true;
             // 
             // rb4
             // 
@@ -357,21 +370,22 @@
             this.rb0.Text = "0";
             this.rb0.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btnSend
             // 
-            this.button1.Location = new System.Drawing.Point(695, 30);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Send";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnSend.Location = new System.Drawing.Point(695, 30);
+            this.btnSend.Name = "btnSend";
+            this.btnSend.Size = new System.Drawing.Size(75, 23);
+            this.btnSend.TabIndex = 1;
+            this.btnSend.Text = "Send";
+            this.btnSend.UseVisualStyleBackColor = true;
+            this.btnSend.Click += new System.EventHandler(this.btnSend_Click);
             // 
-            // textBox1
+            // txtReview
             // 
-            this.textBox1.Location = new System.Drawing.Point(295, 30);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(394, 20);
-            this.textBox1.TabIndex = 0;
+            this.txtReview.Location = new System.Drawing.Point(295, 30);
+            this.txtReview.Name = "txtReview";
+            this.txtReview.Size = new System.Drawing.Size(394, 20);
+            this.txtReview.TabIndex = 0;
             // 
             // dataGridView2
             // 
@@ -459,16 +473,27 @@
             this.AverageScore.Name = "AverageScore";
             this.AverageScore.ReadOnly = true;
             // 
+            // labelResult
+            // 
+            this.labelResult.AutoSize = true;
+            this.labelResult.Location = new System.Drawing.Point(12, 629);
+            this.labelResult.Name = "labelResult";
+            this.labelResult.Size = new System.Drawing.Size(37, 13);
+            this.labelResult.TabIndex = 90;
+            this.labelResult.Text = "Result";
+            // 
             // frmMusicDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 634);
+            this.ClientSize = new System.Drawing.Size(800, 654);
+            this.Controls.Add(this.labelResult);
             this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "frmMusicDetails";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -483,6 +508,7 @@
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -499,8 +525,8 @@
         private System.Windows.Forms.Label lblMusicStyle;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button btnSend;
+        private System.Windows.Forms.TextBox txtReview;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn ReviewText;
         private System.Windows.Forms.DataGridViewTextBoxColumn Moment;
@@ -514,11 +540,13 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ImgUrl;
         private System.Windows.Forms.DataGridViewTextBoxColumn AverageScore;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.RadioButton rb6;
+        private System.Windows.Forms.RadioButton rb5;
         private System.Windows.Forms.RadioButton rb4;
         private System.Windows.Forms.RadioButton rb3;
         private System.Windows.Forms.RadioButton rb2;
         private System.Windows.Forms.RadioButton rb1;
         private System.Windows.Forms.RadioButton rb0;
+        private System.Windows.Forms.Button btnAddAsFavorite;
+        private System.Windows.Forms.Label labelResult;
     }
 }

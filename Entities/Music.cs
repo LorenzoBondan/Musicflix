@@ -14,8 +14,8 @@ namespace Music_Flix.Entities
         public Album album { get; set; }
 
         public List<Author> authors { get; set; } = new List<Author>();
-        public List<Review> reviews { get; } = new List<Review>();
-        public List<User> usersFavorites { get; } = new List<User>();
+        public List<Review> reviews { get; set; } = new List<Review>();
+        public List<User> usersFavorites { get; set; } = new List<User>();
 
         public Music() { }
 

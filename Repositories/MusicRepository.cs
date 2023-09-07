@@ -221,7 +221,8 @@ namespace Music_Flix.Repositories
                         seconds = Convert.ToInt32(reader["seconds"]),
                         style = styleRepository.FindById(Convert.ToInt32(reader["styleId"])),
                         album = albumRepository.FindById(Convert.ToInt32(reader["albumId"])),
-                        authors = new List<Author>()
+                        authors = new List<Author>(),
+                        reviews = new List<Review>()
                     };
                 }
 
@@ -241,6 +242,7 @@ namespace Music_Flix.Repositories
                     musicEncontrada.authors.Add(authorRepository.FindById(authorIdEncontrado));
                 }
                 reader2.Close();
+
             }
             catch (Exception ex)
             {

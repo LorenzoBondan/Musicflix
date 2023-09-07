@@ -1,5 +1,7 @@
 ﻿using Music_Flix.Dtos;
 using System;
+using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlServerCe;
 using System.IO;
 using System.Windows.Forms;
@@ -46,7 +48,129 @@ namespace Music_Flix.Repositories
             }
         }
 
-        public void Insert(ReviewDTO reviewDTO, Action<DataGridView> findAll, DataGridView dataGridView, Label labelResult)
+        public List<ReviewDTO> FindAllReviewsByUser(int userId, DataGridView dataGridView = null)
+        {
+            List<ReviewDTO> reviews = new List<ReviewDTO>();
+
+            if (dataGridView != null)
+            {
+                dataGridView.Rows.Clear();
+            }
+
+            string baseDados = Application.StartupPath + @"\BancoDeDados.sdf";
+            string strConnection = @"DataSource = " + baseDados + ";Password = '1234'";
+
+            SqlCeConnection conexao = new SqlCeConnection(strConnection);
+
+            try
+            {
+                string query = "SELECT * FROM tb_review r WHERE r.userId = '" + userId + "' ";
+
+                DataTable dados = new DataTable();
+
+                SqlCeDataAdapter adaptador = new SqlCeDataAdapter(query, strConnection);
+
+                conexao.Open();
+
+                adaptador.Fill(dados);
+
+                foreach (DataRow linha in dados.Rows)
+                {
+                    ReviewDTO reviewDTO = new ReviewDTO
+                    {
+                        id = Convert.ToInt32(linha["Id"]),
+                        text = linha["text"].ToString(),
+                        moment = linha["moment"].ToString(),
+                        score = Convert.ToInt32(linha["score"]),
+                        userId = Convert.ToInt32(linha["userId"]),
+                        musicId = Convert.ToInt32(linha["musicId"])
+                    };
+                    reviews.Add(reviewDTO);
+
+                    if (dataGridView != null)
+                    {
+                        dataGridView.Rows.Add(linha.ItemArray);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                if (dataGridView != null)
+                {
+                    dataGridView.Rows.Clear();
+                }
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                conexao.Close();
+            }
+
+            return reviews;
+        }
+
+        public List<ReviewDTO> FindAllReviewsByMusic(int musicId, DataGridView dataGridView = null)
+        {
+            List<ReviewDTO> reviews = new List<ReviewDTO>();
+
+            if (dataGridView != null)
+            {
+                dataGridView.Rows.Clear();
+            }
+
+            string baseDados = Application.StartupPath + @"\BancoDeDados.sdf";
+            string strConnection = @"DataSource = " + baseDados + ";Password = '1234'";
+
+            SqlCeConnection conexao = new SqlCeConnection(strConnection);
+
+            try
+            {
+                string query = "SELECT * FROM tb_review r WHERE r.musicId = '" + musicId + "' ";
+
+                DataTable dados = new DataTable();
+
+                SqlCeDataAdapter adaptador = new SqlCeDataAdapter(query, strConnection);
+
+                conexao.Open();
+
+                adaptador.Fill(dados);
+
+                foreach (DataRow linha in dados.Rows)
+                {
+                    ReviewDTO reviewDTO = new ReviewDTO
+                    {
+                        id = Convert.ToInt32(linha["Id"]),
+                        text = linha["text"].ToString(),
+                        moment = linha["moment"].ToString(),
+                        score = Convert.ToInt32(linha["score"]),
+                        userId = Convert.ToInt32(linha["userId"]),
+                        musicId = Convert.ToInt32(linha["musicId"])
+                    };
+                    reviews.Add(reviewDTO);
+
+                    if (dataGridView != null)
+                    {
+                        dataGridView.Rows.Add(linha.ItemArray);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                if (dataGridView != null)
+                {
+                    dataGridView.Rows.Clear();
+                }
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                conexao.Close();
+            }
+
+            return reviews;
+        }
+
+        public void Insert(ReviewDTO reviewDTO, Action<DataGridView> findAll = null, DataGridView dataGridView = null, Label labelResult = null)
         {
             string baseDados = Application.StartupPath + @"\BancoDeDados.sdf";
             string strConection = @"DataSource = " + baseDados + "; Password = '1234'";
@@ -64,7 +188,7 @@ namespace Music_Flix.Repositories
 
                 int existencia = (int)verificaExistencia.ExecuteScalar();
 
-                if (existencia > 0)
+                if (existencia > 0 && labelResult != null)
                 {
                     labelResult.Text = "Música já avaliada.";
                 }
@@ -78,7 +202,10 @@ namespace Music_Flix.Repositories
 
                     comando.ExecuteNonQuery();
 
-                    labelResult.Text = "Registro inserido.";
+                    if (labelResult != null)
+                    {
+                        labelResult.Text = "Avaliação inserida.";
+                    }
                     comando.Dispose();
                 }
             }
@@ -89,7 +216,10 @@ namespace Music_Flix.Repositories
             finally
             {
                 conexao.Close();
-                findAll(dataGridView); // inserir o método de atualização de dados necessário
+                if (findAll != null && dataGridView != null)
+                {
+                    findAll(dataGridView); // inserir o método de atualização de dados necessário
+                }
             }
         }
 
@@ -127,6 +257,5 @@ namespace Music_Flix.Repositories
                 }
             }
         }
-
     }
 }
