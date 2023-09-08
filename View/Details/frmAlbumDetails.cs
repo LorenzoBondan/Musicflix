@@ -3,14 +3,9 @@ using Music_Flix.Entities;
 using Music_Flix.Repositories;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.IO;
-using System.Linq;
 using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Music_Flix.View.Details
@@ -25,7 +20,6 @@ namespace Music_Flix.View.Details
             InitializeComponent();
             Album album = albumRepository.FindById(albumId, lblAlbumName);
             lblAlbumYear.Text = album.year.ToString();
-            lblAlbumMusicCount.Text = "Musics: " + album.musics.Count.ToString();
 
             string imageUrl = album.imgUrl;
             string localImagePath = Path.Combine(Application.StartupPath, "images", " '" + album.name + "' '" + DateTime.Now.Ticks + "'.png"); // Caminho local para salvar a imagem

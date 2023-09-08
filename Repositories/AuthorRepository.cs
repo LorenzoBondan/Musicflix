@@ -6,13 +6,11 @@ using System.Data.SqlServerCe;
 using System.Data;
 using System.Windows.Forms;
 using System.IO;
-using System.Xml.Linq;
 
 namespace Music_Flix.Repositories
 {
     public class AuthorRepository
     {
-        private StyleRepository styleRepository = new StyleRepository();
         private AlbumRepository albumRepository = new AlbumRepository();
 
         public void CreateDatabase()
@@ -367,6 +365,57 @@ namespace Music_Flix.Repositories
             }
 
             return musicsIds;
+        }
+
+        public double GetMusicsReviewsAverageScore(int authorId)
+        {
+            double scoreSum = 0;
+            int count = 0;
+
+            string baseDados = Application.StartupPath + @"\BancoDeDados.sdf";
+            string strConnection = @"DataSource = " + baseDados + "; Password = '1234'";
+
+            SqlCeConnection conexao = new SqlCeConnection(strConnection);
+
+            try
+            {
+                conexao.Open();
+
+                SqlCeCommand comando2 = new SqlCeCommand();
+                comando2.Connection = conexao;
+
+                comando2.CommandText = "SELECT r.score as score FROM tb_review r " +
+                    "INNER JOIN tb_music m ON r.musicId = m.id " +
+                    "INNER JOIN tb_music_author ma ON ma.music_id = m.id " +
+                    "WHERE ma.author_id = '" + authorId + "' ";
+                SqlCeDataReader reader2 = comando2.ExecuteReader();
+
+                while (reader2.Read())
+                {
+                    scoreSum += Convert.ToInt32(reader2["score"]);
+                    count++;
+                }
+                reader2.Close();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                conexao.Close();
+            }
+
+            if (count > 0)
+            {
+                double averageScore = scoreSum / count;
+                return averageScore;
+            }
+            else
+            {
+                return 0;
+            }
         }
     }
 }

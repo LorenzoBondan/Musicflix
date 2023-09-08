@@ -35,7 +35,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAlbumDetails));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.lblAlbumMusicCount = new System.Windows.Forms.Label();
             this.lblAlbumYear = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.lblAlbumName = new System.Windows.Forms.Label();
@@ -65,16 +64,6 @@
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
-            // lblAlbumMusicCount
-            // 
-            this.lblAlbumMusicCount.AutoSize = true;
-            this.lblAlbumMusicCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAlbumMusicCount.Location = new System.Drawing.Point(17, 77);
-            this.lblAlbumMusicCount.Name = "lblAlbumMusicCount";
-            this.lblAlbumMusicCount.Size = new System.Drawing.Size(141, 20);
-            this.lblAlbumMusicCount.TabIndex = 3;
-            this.lblAlbumMusicCount.Text = "album music count";
-            // 
             // lblAlbumYear
             // 
             this.lblAlbumYear.AutoSize = true;
@@ -87,7 +76,6 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.lblAlbumMusicCount);
             this.groupBox2.Controls.Add(this.lblAlbumYear);
             this.groupBox2.Controls.Add(this.lblAlbumName);
             this.groupBox2.Location = new System.Drawing.Point(213, 19);
@@ -255,7 +243,6 @@
 
         #endregion
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label lblAlbumMusicCount;
         private System.Windows.Forms.Label lblAlbumYear;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label lblAlbumName;

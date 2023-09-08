@@ -21,7 +21,8 @@ namespace Music_Flix.View.Details
 
             Author author = authorRepository.FindById(authorId, lblAuthorName);
             lblAuthorBirthdate.Text = author.birthDate.ToString();
-            lblAverageScore.Text = author.getAverageScore().ToString();
+            lblAverageScore.Text = authorRepository.GetMusicsReviewsAverageScore(authorId).ToString();
+            
 
             string imageUrl = author.imgUrl;
             string localImagePath = Path.Combine(Application.StartupPath, "images", " '" + author.name + "' '" + DateTime.Now.Ticks + "'.png"); // Caminho local para salvar a imagem

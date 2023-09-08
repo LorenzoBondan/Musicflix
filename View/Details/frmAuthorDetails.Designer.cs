@@ -77,6 +77,7 @@
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -109,6 +110,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.lblAverageScore);
             this.groupBox2.Controls.Add(this.lblAuthorBirthdate);
             this.groupBox2.Controls.Add(this.lblAuthorName);
@@ -122,11 +124,11 @@
             // 
             this.lblAverageScore.AutoSize = true;
             this.lblAverageScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAverageScore.Location = new System.Drawing.Point(17, 79);
+            this.lblAverageScore.Location = new System.Drawing.Point(133, 78);
             this.lblAverageScore.Name = "lblAverageScore";
-            this.lblAverageScore.Size = new System.Drawing.Size(158, 20);
+            this.lblAverageScore.Size = new System.Drawing.Size(34, 20);
             this.lblAverageScore.TabIndex = 3;
-            this.lblAverageScore.Text = "author averageScore";
+            this.lblAverageScore.Text = "avg";
             // 
             // lblAuthorName
             // 
@@ -488,6 +490,16 @@
             this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
             this.dataGridViewTextBoxColumn9.ReadOnly = true;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(17, 78);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(118, 20);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Average Score:";
+            // 
             // frmAuthorDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -551,5 +563,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Nome;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
         private System.Windows.Forms.DataGridViewTextBoxColumn ImgUrl;
+        private System.Windows.Forms.Label label1;
     }
 }
