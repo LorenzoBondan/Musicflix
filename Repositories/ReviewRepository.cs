@@ -1,4 +1,5 @@
 ﻿using Music_Flix.Dtos;
+using Music_Flix.Entities;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -168,6 +169,59 @@ namespace Music_Flix.Repositories
             }
 
             return reviews;
+        }
+
+        public ReviewDTO FindById(int id, Label labelResult = null)
+        {
+            string baseDados = Application.StartupPath + @"\BancoDeDados.sdf";
+            string strConnection = @"DataSource = " + baseDados + "; Password = '1234'";
+
+            SqlCeConnection conexao = new SqlCeConnection(strConnection);
+            ReviewDTO reviewEncontrado = null;
+
+            try
+            {
+                conexao.Open();
+                SqlCeCommand comando = new SqlCeCommand();
+                comando.Connection = conexao;
+
+                comando.CommandText = "SELECT * FROM tb_review WHERE id = '" + id + "' ";
+
+                SqlCeDataReader reader = comando.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    reviewEncontrado = new ReviewDTO
+                    {
+                        id = Convert.ToInt32(reader["Id"]),
+                        text = reader["text"].ToString(),
+                        moment = reader["moment"].ToString(),
+                        score = Convert.ToInt32(reader["score"]),
+                        userId = Convert.ToInt32(reader["userId"]),
+                        musicId = Convert.ToInt32(reader["musicId"])
+                    };
+                }
+
+                comando.Dispose();
+            }
+            catch (Exception ex)
+            {
+                if (labelResult != null)
+                {
+                    labelResult.Text = ex.Message;
+                }
+
+            }
+            finally
+            {
+                if (labelResult != null)
+                {
+                    labelResult.Text = reviewEncontrado.text;
+                }
+                conexao.Close();
+            }
+
+            return reviewEncontrado;
         }
 
         public void Insert(ReviewDTO reviewDTO, Action<DataGridView> findAll = null, DataGridView dataGridView = null, Label labelResult = null)

@@ -104,7 +104,7 @@ namespace Music_Flix.View.Home
             }
         }
 
-        private void btnClearFilters_Click(object sender, System.EventArgs e)
+        private void btnClearFilters_Click(object sender, EventArgs e)
         {
             cbStyle.SelectedItem = null;
             txtName.Text = "";
@@ -118,7 +118,7 @@ namespace Music_Flix.View.Home
                 frmMusicDetails f = new frmMusicDetails((int)dataGridView1.SelectedRows[0].Cells[0].Value, userLogged.id);
                 f.Show();
             }
-            catch (System.Exception)
+            catch (Exception)
             {
                 //
             }

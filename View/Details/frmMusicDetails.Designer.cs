@@ -43,7 +43,6 @@
             this.btnAddAsFavorite = new System.Windows.Forms.Button();
             this.lblMusicAlbum = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.lblMusicStyle = new System.Windows.Forms.Label();
             this.lblMusicYear = new System.Windows.Forms.Label();
             this.lblMusicDuration = new System.Windows.Forms.Label();
             this.lblMusicExplicit = new System.Windows.Forms.Label();
@@ -72,6 +71,7 @@
             this.ImgUrl = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AverageScore = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.labelResult = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -92,6 +92,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.btnAddAsFavorite);
             this.groupBox1.Controls.Add(this.lblMusicAlbum);
             this.groupBox1.Controls.Add(this.groupBox2);
@@ -124,7 +125,6 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.lblMusicStyle);
             this.groupBox2.Controls.Add(this.lblMusicYear);
             this.groupBox2.Controls.Add(this.lblMusicDuration);
             this.groupBox2.Controls.Add(this.lblMusicExplicit);
@@ -134,16 +134,6 @@
             this.groupBox2.Size = new System.Drawing.Size(557, 166);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
-            // 
-            // lblMusicStyle
-            // 
-            this.lblMusicStyle.AutoSize = true;
-            this.lblMusicStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMusicStyle.Location = new System.Drawing.Point(17, 137);
-            this.lblMusicStyle.Name = "lblMusicStyle";
-            this.lblMusicStyle.Size = new System.Drawing.Size(86, 20);
-            this.lblMusicStyle.TabIndex = 4;
-            this.lblMusicStyle.Text = "music style";
             // 
             // lblMusicYear
             // 
@@ -483,6 +473,16 @@
             this.labelResult.TabIndex = 90;
             this.labelResult.Text = "Result";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(209, 188);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(114, 20);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "Average Score";
+            // 
             // frmMusicDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -523,7 +523,6 @@
         private System.Windows.Forms.Label lblMusicDuration;
         private System.Windows.Forms.Label lblMusicYear;
         private System.Windows.Forms.Label lblMusicAlbum;
-        private System.Windows.Forms.Label lblMusicStyle;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button btnSend;
@@ -549,5 +548,6 @@
         private System.Windows.Forms.RadioButton rb0;
         private System.Windows.Forms.Button btnAddAsFavorite;
         private System.Windows.Forms.Label labelResult;
+        private System.Windows.Forms.Label label2;
     }
 }

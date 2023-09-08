@@ -15,6 +15,7 @@ namespace Music_Flix.Repositories
         private StyleRepository styleRepository = new StyleRepository();
         private AlbumRepository albumRepository = new AlbumRepository();
         private AuthorRepository authorRepository = new AuthorRepository();
+        private ReviewRepository reviewRepository = new ReviewRepository();
 
         public void CreateDatabase()
         {
@@ -98,12 +99,29 @@ namespace Music_Flix.Repositories
                     };
                     musics.Add(musicDTO);
 
-                    double averageScore = musicDTO.averageScore;
+                    double totalScore = 0;
+                    int count = 0;
 
+                    List<ReviewDTO> reviews = reviewRepository.FindAllReviewsByMusic((int)musicDTO.id);
+                    foreach (ReviewDTO review in reviews)
+                    {
+                        totalScore += review.score;
+                        count++;
+                    }
+                    musicDTO.averageScore = totalScore / count;
+                    
                     if (dataGridView != null)
                     {
                         dataGridView.Rows.Add(linha.ItemArray);
-                        dataGridView.Rows[dataGridView.Rows.Count - 1].Cells["AverageScore"].Value = averageScore;
+                        if (musicDTO.averageScore > 0)
+                        {
+                            dataGridView.Rows[dataGridView.Rows.Count - 1].Cells["AverageScore"].Value = musicDTO.averageScore;
+                        }
+                        else
+                        {
+                            dataGridView.Rows[dataGridView.Rows.Count - 1].Cells["AverageScore"].Value = 0;
+                        }
+
                     }
                 }
             }
@@ -165,12 +183,28 @@ namespace Music_Flix.Repositories
                     };
                     musics.Add(musicDTO);
 
-                    double averageScore = musicDTO.averageScore;
+                    double totalScore = 0;
+                    int count = 0;
+
+                    List<ReviewDTO> reviews = reviewRepository.FindAllReviewsByMusic((int)musicDTO.id);
+                    foreach (ReviewDTO review in reviews)
+                    {
+                        totalScore += review.score;
+                        count++;
+                    }
+                    musicDTO.averageScore = totalScore / count;
 
                     if (dataGridView != null)
                     {
                         dataGridView.Rows.Add(linha.ItemArray);
-                        dataGridView.Rows[dataGridView.Rows.Count - 1].Cells["AverageScore"].Value = averageScore;
+                        if (musicDTO.averageScore > 0)
+                        {
+                            dataGridView.Rows[dataGridView.Rows.Count - 1].Cells["AverageScore"].Value = musicDTO.averageScore;
+                        }
+                        else
+                        {
+                            dataGridView.Rows[dataGridView.Rows.Count - 1].Cells["AverageScore"].Value = 0;
+                        }
                     }
                 }
             }
@@ -199,6 +233,8 @@ namespace Music_Flix.Repositories
             SqlCeConnection conexao = new SqlCeConnection(strConnection);
             Music musicEncontrada = null;
 
+            int totalScore = 0;
+            int count = 0;
             try
             {
                 conexao.Open();
@@ -222,7 +258,6 @@ namespace Music_Flix.Repositories
                         style = styleRepository.FindById(Convert.ToInt32(reader["styleId"])),
                         album = albumRepository.FindById(Convert.ToInt32(reader["albumId"])),
                         authors = new List<Author>(),
-                        reviews = new List<Review>()
                     };
                 }
 
@@ -243,6 +278,23 @@ namespace Music_Flix.Repositories
                 }
                 reader2.Close();
 
+                // Get the reviews scores
+                // not a review list to don't generate stack over flow error in the repositories
+
+                SqlCeCommand comando3 = new SqlCeCommand();
+                comando3.Connection = conexao;
+
+                comando3.CommandText = "SELECT score FROM tb_review WHERE musicId = '" + id + "'";
+                SqlCeDataReader reader3 = comando3.ExecuteReader();
+
+                while (reader3.Read())
+                {
+                    int score = Convert.ToInt32(reader3["score"]);
+                    totalScore += score;
+                    count++;
+                }
+                reader3.Close();
+                
             }
             catch (Exception ex)
             {
@@ -260,7 +312,13 @@ namespace Music_Flix.Repositories
                 conexao.Close();
             }
 
-            return new MusicDTO(musicEncontrada);
+            MusicDTO music = new MusicDTO(musicEncontrada);
+            if (count > 0)
+            {
+                double averageScore = totalScore / count;
+                music.averageScore = averageScore;
+            }
+            return music;
         }
 
         public void Insert(MusicDTO musicDTO, DataGridView dataGridView, Label labelResult)

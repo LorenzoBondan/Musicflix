@@ -95,8 +95,7 @@ namespace Music_Flix.View.Login
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Close();
-            Dispose();
+            Application.Exit();
         }
 
         private void frmLogin_Leave(object sender, EventArgs e)

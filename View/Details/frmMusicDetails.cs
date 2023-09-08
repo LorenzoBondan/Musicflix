@@ -53,6 +53,8 @@ namespace Music_Flix.View.Details
             FillAuthorsDataGridView(music.authorsIds, dataGridView2);
             FillReviewsDataGridView((int)music.id, dataGridView1);
 
+            CreatePictureBoxes((int)music.averageScore);
+
             #region CUSTOMIZAÇÃO DO DATAGRID
             // Linhas alternadas
             dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(234, 234, 234);
@@ -121,7 +123,7 @@ namespace Music_Flix.View.Details
                     }
                 }
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show("Ocorreu um erro: " + ex.Message);
             }
@@ -167,11 +169,6 @@ namespace Music_Flix.View.Details
             FillReviewsDataGridView((int)music.id, dataGridView1);
         }
 
-        private void AddMusicAsFavorite(int musicId, int userId)
-        {
-            
-        }
-
         private void btnAddAsFavorite_Click(object sender, EventArgs e)
         {
             userRepository.InsertUserMusic(userLoggedId, musicId, labelResult);
@@ -180,6 +177,26 @@ namespace Music_Flix.View.Details
         private void btnSend_Click(object sender, EventArgs e)
         {
             SendReview(musicId, userLoggedId);
+        }
+
+        private void CreatePictureBoxes(int count)
+        {
+            int spacingX = 5;
+
+            for (int i = 0; i < count; i++)
+            {
+                PictureBox pictureBox = new PictureBox();
+
+                pictureBox.Width = 23;
+                pictureBox.Height = 23;
+                pictureBox.Location = new Point(330 + (i * (pictureBox.Width + spacingX)), 185);
+
+                string caminho = Application.StartupPath + @"\logo\star.png";
+                pictureBox.Image = Image.FromFile(caminho);
+                pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+
+                pictureBox.Parent = groupBox1;
+            }
         }
     }
 }
