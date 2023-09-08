@@ -6,6 +6,7 @@ using System.Data.SqlServerCe;
 using System.Data;
 using System.Windows.Forms;
 using System.IO;
+using static System.Windows.Forms.LinkLabel;
 
 
 namespace Music_Flix.Repositories
@@ -473,8 +474,30 @@ namespace Music_Flix.Repositories
                         albumId = Convert.ToInt32(row["albumId"])
                     };
                     musicsDTO.Add(musicDTO);
-                    
-                    dataGridView.Rows.Add(musicDTO.id, musicDTO.name, musicDTO.isExplicit, musicDTO.year, musicDTO.minutes, musicDTO.seconds, musicDTO.styleId, musicDTO.albumId, musicDTO.averageScore);
+
+                    double totalScore = 0;
+                    int count = 0;
+
+                    List<ReviewDTO> reviews = reviewRepository.FindAllReviewsByMusic((int)musicDTO.id);
+                    foreach (ReviewDTO review in reviews)
+                    {
+                        totalScore += review.score;
+                        count++;
+                    }
+                    musicDTO.averageScore = totalScore / count;
+
+                    if (dataGridView != null)
+                    {
+                        dataGridView.Rows.Add(row.ItemArray);
+                        if (musicDTO.averageScore > 0)
+                        {
+                            dataGridView.Rows[dataGridView.Rows.Count - 1].Cells["AverageScore"].Value = musicDTO.averageScore;
+                        }
+                        else
+                        {
+                            dataGridView.Rows[dataGridView.Rows.Count - 1].Cells["AverageScore"].Value = 0;
+                        }
+                    }
                 }
 
                 comando.Dispose();

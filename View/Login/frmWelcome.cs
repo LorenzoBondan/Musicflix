@@ -13,16 +13,12 @@ namespace Music_Flix.View.Login
 
         private void frmWelcome_Load(object sender, EventArgs e)
         {
-
-            //pictureBox1.Parent = label1;
-
+            this.BackColor = Color.FromArgb(252, 255, 252);
             this.Opacity = 0.0;
             timer1.Start();
-
-            //label1.ForeColor = Color.FromArgb(this.BackColor.R, this.BackColor.G, this.BackColor.B);
         }
 
-        int[] targetColor = { 0, 0, 0 }; //black
+        int[] targetColor = { 0, 0, 0 };
         int[] fadeRGB = new int[3];
 
         int counter = 0;

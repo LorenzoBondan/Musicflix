@@ -1,5 +1,4 @@
-﻿using Music_Flix.Repositories;
-using Music_Flix.View;
+﻿using Music_Flix.View;
 using Music_Flix.View.Details;
 using Music_Flix.View.Home;
 using Music_Flix.View.Login;
@@ -10,8 +9,6 @@ namespace Music_Flix
 {
     public partial class frmAdmin : Form
     {
-        private StyleRepository repository = new StyleRepository();
-
         public frmAdmin()
         {
             InitializeComponent();

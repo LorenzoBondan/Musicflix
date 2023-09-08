@@ -132,7 +132,7 @@ namespace Music_Flix.View.Details
                     }
                 }
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show("Ocorreu um erro: " + ex.Message);
             }
