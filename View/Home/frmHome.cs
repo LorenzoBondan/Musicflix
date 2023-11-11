@@ -29,6 +29,7 @@ namespace Music_Flix.View.Home
             dataGridView1.ClearSelection();
 
             CleanFolder(Path.Combine(Application.StartupPath, "images")); // limpa a pasta das imagens geradas
+            
             lblUsername.Text = user.name;
 
             string imageUrl = user.imgUrl;
@@ -143,7 +144,7 @@ namespace Music_Flix.View.Home
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro ao limpar a pasta: " + ex.Message);
+                // ignora e não deleta
             }
         }
 

@@ -95,6 +95,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.BackColor = System.Drawing.SystemColors.Control;
             this.groupBox2.Controls.Add(this.lblEmail);
             this.groupBox2.Controls.Add(this.lblName);
             this.groupBox2.Controls.Add(this.btnUpdateImage);

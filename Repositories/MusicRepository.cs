@@ -109,7 +109,7 @@ namespace Music_Flix.Repositories
                         totalScore += review.score;
                         count++;
                     }
-                    musicDTO.averageScore = totalScore / count;
+                    musicDTO.averageScore = Math.Round(totalScore / count, 2);
                     
                     if (dataGridView != null)
                     {
@@ -193,7 +193,7 @@ namespace Music_Flix.Repositories
                         totalScore += review.score;
                         count++;
                     }
-                    musicDTO.averageScore = totalScore / count;
+                    musicDTO.averageScore = Math.Round(totalScore / count, 2);
 
                     if (dataGridView != null)
                     {
@@ -317,6 +317,7 @@ namespace Music_Flix.Repositories
             if (count > 0)
             {
                 double averageScore = totalScore / count;
+                averageScore = Math.Round(averageScore, 2); // arredonda para duas casas decimais
                 music.averageScore = averageScore;
             }
             return music;
@@ -484,7 +485,7 @@ namespace Music_Flix.Repositories
                         totalScore += review.score;
                         count++;
                     }
-                    musicDTO.averageScore = totalScore / count;
+                    musicDTO.averageScore = Math.Round(totalScore / count, 2);
 
                     if (dataGridView != null)
                     {

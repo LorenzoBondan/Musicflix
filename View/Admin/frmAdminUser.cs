@@ -57,6 +57,7 @@ namespace Music_Flix.View
             {
                 UserDTO userDTO = new UserDTO();
                 userDTO.name = txtName.Text;
+                userDTO.email= txtEmail.Text; // não é atualizado, mas serve como referência do WHERE no método
                 userDTO.imgUrl = txtImgUrl.Text;
                 userDTO.admin = cbAdmin.Checked ? "Y" : "N";
                 repository.Update(userDTO, dataGridView1, labelResultado);

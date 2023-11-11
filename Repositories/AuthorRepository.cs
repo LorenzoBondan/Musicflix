@@ -12,6 +12,7 @@ namespace Music_Flix.Repositories
     public class AuthorRepository
     {
         private AlbumRepository albumRepository = new AlbumRepository();
+        private ReviewRepository reviewRepository = new ReviewRepository();
 
         public void CreateDatabase()
         {
@@ -80,7 +81,16 @@ namespace Music_Flix.Repositories
                         imgUrl = linha["imgUrl"].ToString()
                     };
                     authors.Add(authorDTO);
-                    double averageScore = authorDTO.averageScore;
+
+                    double averageScore = 0;
+
+                    List<MusicDTO> musicList = FindAllByAuthor((int)authorDTO.id);
+                    foreach (MusicDTO music in musicList)
+                    {
+                        averageScore += music.averageScore;
+                    }
+                    averageScore = averageScore / musicList.Count;
+                    averageScore = Math.Round(averageScore, 2); // arredonda para duas casas decimais
 
                     if (dataGridView != null)
                     {
@@ -416,6 +426,89 @@ namespace Music_Flix.Repositories
             {
                 return 0;
             }
+        }
+
+        public List<MusicDTO> FindAllByAuthor(int authorId, DataGridView dataGridView = null)
+        {
+            List<MusicDTO> musics = new List<MusicDTO>();
+
+            if (dataGridView != null)
+            {
+                dataGridView.Rows.Clear();
+            }
+
+            string baseDados = Application.StartupPath + @"\BancoDeDados.sdf";
+            string strConnection = @"DataSource = " + baseDados + ";Password = '1234'";
+
+            SqlCeConnection conexao = new SqlCeConnection(strConnection);
+
+            try
+            {
+                string query = "SELECT * FROM tb_music m INNER JOIN tb_music_author ma ON ma.music_id = m.id WHERE ma.author_id = '" + authorId + "' ";
+
+                DataTable dados = new DataTable();
+
+                SqlCeDataAdapter adaptador = new SqlCeDataAdapter(query, strConnection);
+
+                conexao.Open();
+
+                adaptador.Fill(dados);
+
+                foreach (DataRow linha in dados.Rows)
+                {
+                    MusicDTO musicDTO = new MusicDTO
+                    {
+                        id = Convert.ToInt32(linha["Id"]),
+                        name = linha["Name"].ToString(),
+                        isExplicit = linha["isExplicit"].ToString()[0],
+                        year = Convert.ToInt32(linha["year"]),
+                        minutes = Convert.ToInt32(linha["minutes"]),
+                        seconds = Convert.ToInt32(linha["seconds"]),
+                        styleId = Convert.ToInt32(linha["styleId"]),
+                        albumId = Convert.ToInt32(linha["albumId"])
+                    };
+                    musics.Add(musicDTO);
+
+                    double totalScore = 0;
+                    int count = 0;
+
+                    List<ReviewDTO> reviews = reviewRepository.FindAllReviewsByMusic((int)musicDTO.id);
+                    foreach (ReviewDTO review in reviews)
+                    {
+                        totalScore += review.score;
+                        count++;
+                    }
+                    musicDTO.averageScore = totalScore / count;
+
+                    if (dataGridView != null)
+                    {
+                        dataGridView.Rows.Add(linha.ItemArray);
+                        if (musicDTO.averageScore > 0)
+                        {
+                            dataGridView.Rows[dataGridView.Rows.Count - 1].Cells["AverageScore"].Value = musicDTO.averageScore;
+                        }
+                        else
+                        {
+                            dataGridView.Rows[dataGridView.Rows.Count - 1].Cells["AverageScore"].Value = 0;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                if (dataGridView != null)
+                {
+                    dataGridView.Rows.Clear();
+                }
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                conexao.Close();
+                dataGridView?.ClearSelection();
+            }
+
+            return musics;
         }
     }
 }
