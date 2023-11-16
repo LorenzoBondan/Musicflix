@@ -67,6 +67,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(7, 84);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(53, 13);
@@ -83,6 +84,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(7, 58);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(32, 13);
@@ -99,6 +101,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(7, 32);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(35, 13);
@@ -107,7 +110,7 @@
             // 
             // btnRegister
             // 
-            this.btnRegister.Location = new System.Drawing.Point(104, 173);
+            this.btnRegister.Location = new System.Drawing.Point(102, 203);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(181, 23);
             this.btnRegister.TabIndex = 1;
@@ -117,7 +120,7 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(104, 202);
+            this.btnCancel.Location = new System.Drawing.Point(102, 232);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(181, 23);
             this.btnCancel.TabIndex = 2;
@@ -127,10 +130,11 @@
             // 
             // labelResult
             // 
-            this.labelResult.AutoSize = true;
+            this.labelResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelResult.ForeColor = System.Drawing.Color.Chartreuse;
             this.labelResult.Location = new System.Drawing.Point(12, 152);
             this.labelResult.Name = "labelResult";
-            this.labelResult.Size = new System.Drawing.Size(59, 13);
+            this.labelResult.Size = new System.Drawing.Size(364, 48);
             this.labelResult.TabIndex = 3;
             this.labelResult.Text = "labelResult";
             // 
@@ -138,7 +142,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.ClientSize = new System.Drawing.Size(388, 267);
             this.Controls.Add(this.labelResult);
             this.Controls.Add(this.btnCancel);
@@ -153,7 +157,6 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

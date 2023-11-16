@@ -68,6 +68,7 @@
             // 
             this.lblAlbumYear.AutoSize = true;
             this.lblAlbumYear.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAlbumYear.ForeColor = System.Drawing.Color.White;
             this.lblAlbumYear.Location = new System.Drawing.Point(17, 46);
             this.lblAlbumYear.Name = "lblAlbumYear";
             this.lblAlbumYear.Size = new System.Drawing.Size(86, 20);
@@ -76,6 +77,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.groupBox2.Controls.Add(this.lblAlbumYear);
             this.groupBox2.Controls.Add(this.lblAlbumName);
             this.groupBox2.Location = new System.Drawing.Point(213, 19);
@@ -88,6 +90,7 @@
             // 
             this.lblAlbumName.AutoSize = true;
             this.lblAlbumName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAlbumName.ForeColor = System.Drawing.Color.White;
             this.lblAlbumName.Location = new System.Drawing.Point(17, 14);
             this.lblAlbumName.Name = "lblAlbumName";
             this.lblAlbumName.Size = new System.Drawing.Size(96, 20);
@@ -96,8 +99,10 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Controls.Add(this.pictureBox1);
+            this.groupBox1.ForeColor = System.Drawing.Color.White;
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(776, 198);
@@ -223,6 +228,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.ClientSize = new System.Drawing.Size(800, 469);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.groupBox1);

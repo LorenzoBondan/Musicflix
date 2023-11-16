@@ -103,5 +103,10 @@ namespace Music_Flix.View.Login
             Close();
             Dispose();
         }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

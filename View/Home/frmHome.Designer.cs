@@ -48,6 +48,7 @@
             this.btnClearFilters = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.labelResultado = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -58,7 +59,6 @@
             this.StyleId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AlbumId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AverageScore = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.labelResultado = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userPictureBox)).BeginInit();
             this.panel2.SuspendLayout();
@@ -83,6 +83,7 @@
             // btnAdmin
             // 
             this.btnAdmin.Enabled = false;
+            this.btnAdmin.ForeColor = System.Drawing.Color.Black;
             this.btnAdmin.Location = new System.Drawing.Point(1051, 19);
             this.btnAdmin.Name = "btnAdmin";
             this.btnAdmin.Size = new System.Drawing.Size(75, 23);
@@ -93,6 +94,7 @@
             // 
             // btnSair
             // 
+            this.btnSair.ForeColor = System.Drawing.Color.Black;
             this.btnSair.Location = new System.Drawing.Point(1132, 19);
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(75, 23);
@@ -104,6 +106,8 @@
             // lblUsername
             // 
             this.lblUsername.AutoSize = true;
+            this.lblUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsername.ForeColor = System.Drawing.Color.White;
             this.lblUsername.Location = new System.Drawing.Point(62, 24);
             this.lblUsername.Name = "lblUsername";
             this.lblUsername.Size = new System.Drawing.Size(55, 13);
@@ -132,9 +136,11 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(380, 120);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(367, 120);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(47, 13);
+            this.label3.Size = new System.Drawing.Size(77, 20);
             this.label3.TabIndex = 1;
             this.label3.Text = "Musicflix";
             // 
@@ -180,6 +186,7 @@
             // 
             // btnClearFilters
             // 
+            this.btnClearFilters.ForeColor = System.Drawing.Color.Black;
             this.btnClearFilters.Location = new System.Drawing.Point(687, 25);
             this.btnClearFilters.Name = "btnClearFilters";
             this.btnClearFilters.Size = new System.Drawing.Size(111, 23);
@@ -191,6 +198,8 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(359, 30);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(61, 13);
@@ -200,11 +209,24 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(20, 30);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(66, 13);
             this.label1.TabIndex = 5;
             this.label1.Text = "Music Name";
+            // 
+            // labelResultado
+            // 
+            this.labelResultado.AutoSize = true;
+            this.labelResultado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelResultado.ForeColor = System.Drawing.Color.Chartreuse;
+            this.labelResultado.Location = new System.Drawing.Point(203, 592);
+            this.labelResultado.Name = "labelResultado";
+            this.labelResultado.Size = new System.Drawing.Size(129, 20);
+            this.labelResultado.TabIndex = 87;
+            this.labelResultado.Text = "labelResultado";
             // 
             // dataGridView1
             // 
@@ -238,12 +260,12 @@
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle4;
-            this.dataGridView1.Location = new System.Drawing.Point(207, 293);
+            this.dataGridView1.Location = new System.Drawing.Point(207, 301);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -261,8 +283,8 @@
             this.dataGridView1.ShowEditingIcon = false;
             this.dataGridView1.ShowRowErrors = false;
             this.dataGridView1.Size = new System.Drawing.Size(804, 288);
-            this.dataGridView1.TabIndex = 86;
-            this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
+            this.dataGridView1.TabIndex = 88;
+            this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick_1);
             // 
             // Id
             // 
@@ -322,26 +344,19 @@
             this.AverageScore.Name = "AverageScore";
             this.AverageScore.ReadOnly = true;
             // 
-            // labelResultado
-            // 
-            this.labelResultado.AutoSize = true;
-            this.labelResultado.ForeColor = System.Drawing.Color.Green;
-            this.labelResultado.Location = new System.Drawing.Point(204, 599);
-            this.labelResultado.Name = "labelResultado";
-            this.labelResultado.Size = new System.Drawing.Size(77, 13);
-            this.labelResultado.TabIndex = 87;
-            this.labelResultado.Text = "labelResultado";
-            // 
             // frmHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.ClientSize = new System.Drawing.Size(1219, 621);
-            this.Controls.Add(this.labelResultado);
             this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.labelResultado);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -371,7 +386,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnSair;
@@ -379,6 +393,8 @@
         private System.Windows.Forms.PictureBox userPictureBox;
         private System.Windows.Forms.Label labelResultado;
         private System.Windows.Forms.Button btnClearFilters;
+        private System.Windows.Forms.Button btnAdmin;
+        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn Description;
         private System.Windows.Forms.DataGridViewTextBoxColumn Explicit;
@@ -388,6 +404,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn StyleId;
         private System.Windows.Forms.DataGridViewTextBoxColumn AlbumId;
         private System.Windows.Forms.DataGridViewTextBoxColumn AverageScore;
-        private System.Windows.Forms.Button btnAdmin;
     }
 }

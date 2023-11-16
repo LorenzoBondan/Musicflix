@@ -29,7 +29,6 @@ namespace Music_Flix.View.Home
             dataGridView1.ClearSelection();
 
             CleanFolder(Path.Combine(Application.StartupPath, "images")); // limpa a pasta das imagens geradas
-            
             lblUsername.Text = user.name;
 
             string imageUrl = user.imgUrl;
@@ -55,10 +54,13 @@ namespace Music_Flix.View.Home
             #region CUSTOMIZAÇÃO DO DATAGRID
             // Linhas alternadas
             dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(234, 234, 234);
+            dataGridView1.AlternatingRowsDefaultCellStyle.ForeColor = Color.Black;
 
             // Linha selecionada
             dataGridView1.DefaultCellStyle.SelectionBackColor = Color.FromArgb(230, 125, 33);
             dataGridView1.DefaultCellStyle.SelectionForeColor = Color.White;
+
+            dataGridView1.DefaultCellStyle.ForeColor = Color.FromArgb(75, 75, 75);
 
             // Fonte
             //dataGridView2.DefaultCellStyle.Font = new Font("Century Gothic",8);
@@ -112,19 +114,6 @@ namespace Music_Flix.View.Home
             musicRepository.FindAll(dataGridView1);
         }
 
-        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            try
-            {
-                frmMusicDetails f = new frmMusicDetails((int)dataGridView1.SelectedRows[0].Cells[0].Value, userLogged.id);
-                f.Show();
-            }
-            catch (Exception)
-            {
-                //
-            }
-        }
-
         public static void CleanFolder(string folder)
         {
             try
@@ -166,6 +155,20 @@ namespace Music_Flix.View.Home
         {
             frmAdmin frmAdmin = new frmAdmin();
             frmAdmin.Show();
+        }
+
+        private void dataGridView1_CellDoubleClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                frmMusicDetails f = new frmMusicDetails((int)dataGridView1.SelectedRows[0].Cells[0].Value, userLogged.id);
+                f.Show();
+            }
+            catch (Exception)
+            {
+                //
+            }
+
         }
     }
 }

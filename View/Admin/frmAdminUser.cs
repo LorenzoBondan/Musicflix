@@ -20,10 +20,13 @@ namespace Music_Flix.View
             #region CUSTOMIZAÇÃO DO DATAGRID
             // Linhas alternadas
             dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(234, 234, 234);
+            dataGridView1.AlternatingRowsDefaultCellStyle.ForeColor = Color.Black;
 
             // Linha selecionada
             dataGridView1.DefaultCellStyle.SelectionBackColor = Color.FromArgb(230, 125, 33);
             dataGridView1.DefaultCellStyle.SelectionForeColor = Color.White;
+
+            dataGridView1.DefaultCellStyle.ForeColor = Color.FromArgb(75, 75, 75);
 
             // Fonte
             //dataGridView2.DefaultCellStyle.Font = new Font("Century Gothic",8);
@@ -57,7 +60,7 @@ namespace Music_Flix.View
             {
                 UserDTO userDTO = new UserDTO();
                 userDTO.name = txtName.Text;
-                userDTO.email= txtEmail.Text; // não é atualizado, mas serve como referência do WHERE no método
+                userDTO.email = txtEmail.Text; // não é atualizado, mas serve como referência do WHERE no método
                 userDTO.imgUrl = txtImgUrl.Text;
                 userDTO.admin = cbAdmin.Checked ? "Y" : "N";
                 repository.Update(userDTO, dataGridView1, labelResultado);
@@ -91,6 +94,11 @@ namespace Music_Flix.View
                 txtImgUrl.Text = string.Empty;
                 cbAdmin.Checked = false;
             }
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

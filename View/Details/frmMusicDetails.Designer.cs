@@ -31,15 +31,16 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMusicDetails));
             this.labelMusicName = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.btnAddAsFavorite = new System.Windows.Forms.Button();
             this.lblMusicAlbum = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -48,12 +49,6 @@
             this.lblMusicExplicit = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ReviewText = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Moment = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Score = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UserId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ReviewId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.rb5 = new System.Windows.Forms.RadioButton();
@@ -65,13 +60,17 @@
             this.btnSend = new System.Windows.Forms.Button();
             this.txtReview = new System.Windows.Forms.TextBox();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.labelResult = new System.Windows.Forms.Label();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BirthDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ImgUrl = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AverageScore = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.labelResult = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ReviewText = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Moment = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Score = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UserId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ReviewId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -84,6 +83,7 @@
             // 
             this.labelMusicName.AutoSize = true;
             this.labelMusicName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelMusicName.ForeColor = System.Drawing.Color.White;
             this.labelMusicName.Location = new System.Drawing.Point(17, 14);
             this.labelMusicName.Name = "labelMusicName";
             this.labelMusicName.Size = new System.Drawing.Size(94, 20);
@@ -92,6 +92,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.btnAddAsFavorite);
             this.groupBox1.Controls.Add(this.lblMusicAlbum);
@@ -103,8 +104,20 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(209, 188);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(114, 20);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "Average Score";
+            // 
             // btnAddAsFavorite
             // 
+            this.btnAddAsFavorite.ForeColor = System.Drawing.Color.Black;
             this.btnAddAsFavorite.Location = new System.Drawing.Point(626, 188);
             this.btnAddAsFavorite.Name = "btnAddAsFavorite";
             this.btnAddAsFavorite.Size = new System.Drawing.Size(144, 23);
@@ -117,6 +130,7 @@
             // 
             this.lblMusicAlbum.AutoSize = true;
             this.lblMusicAlbum.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMusicAlbum.ForeColor = System.Drawing.Color.White;
             this.lblMusicAlbum.Location = new System.Drawing.Point(12, 188);
             this.lblMusicAlbum.Name = "lblMusicAlbum";
             this.lblMusicAlbum.Size = new System.Drawing.Size(97, 20);
@@ -139,6 +153,7 @@
             // 
             this.lblMusicYear.AutoSize = true;
             this.lblMusicYear.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMusicYear.ForeColor = System.Drawing.Color.White;
             this.lblMusicYear.Location = new System.Drawing.Point(17, 78);
             this.lblMusicYear.Name = "lblMusicYear";
             this.lblMusicYear.Size = new System.Drawing.Size(84, 20);
@@ -149,6 +164,7 @@
             // 
             this.lblMusicDuration.AutoSize = true;
             this.lblMusicDuration.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMusicDuration.ForeColor = System.Drawing.Color.White;
             this.lblMusicDuration.Location = new System.Drawing.Point(17, 109);
             this.lblMusicDuration.Name = "lblMusicDuration";
             this.lblMusicDuration.Size = new System.Drawing.Size(112, 20);
@@ -159,6 +175,7 @@
             // 
             this.lblMusicExplicit.AutoSize = true;
             this.lblMusicExplicit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMusicExplicit.ForeColor = System.Drawing.Color.White;
             this.lblMusicExplicit.Location = new System.Drawing.Point(17, 46);
             this.lblMusicExplicit.Name = "lblMusicExplicit";
             this.lblMusicExplicit.Size = new System.Drawing.Size(101, 20);
@@ -203,7 +220,7 @@
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
@@ -227,46 +244,6 @@
             this.dataGridView1.ShowRowErrors = false;
             this.dataGridView1.Size = new System.Drawing.Size(776, 160);
             this.dataGridView1.TabIndex = 87;
-            // 
-            // Id
-            // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Id.DefaultCellStyle = dataGridViewCellStyle2;
-            this.Id.HeaderText = "Id";
-            this.Id.Name = "Id";
-            this.Id.ReadOnly = true;
-            // 
-            // ReviewText
-            // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.ReviewText.DefaultCellStyle = dataGridViewCellStyle3;
-            this.ReviewText.HeaderText = "ReviewText";
-            this.ReviewText.Name = "ReviewText";
-            this.ReviewText.ReadOnly = true;
-            // 
-            // Moment
-            // 
-            this.Moment.HeaderText = "Moment";
-            this.Moment.Name = "Moment";
-            this.Moment.ReadOnly = true;
-            // 
-            // Score
-            // 
-            this.Score.HeaderText = "Score";
-            this.Score.Name = "Score";
-            this.Score.ReadOnly = true;
-            // 
-            // UserId
-            // 
-            this.UserId.HeaderText = "UserId";
-            this.UserId.Name = "UserId";
-            this.UserId.ReadOnly = true;
-            // 
-            // ReviewId
-            // 
-            this.ReviewId.HeaderText = "ReviewId";
-            this.ReviewId.Name = "ReviewId";
-            this.ReviewId.ReadOnly = true;
             // 
             // groupBox3
             // 
@@ -363,6 +340,7 @@
             // 
             // btnSend
             // 
+            this.btnSend.ForeColor = System.Drawing.Color.Black;
             this.btnSend.Location = new System.Drawing.Point(695, 30);
             this.btnSend.Name = "btnSend";
             this.btnSend.Size = new System.Drawing.Size(75, 23);
@@ -401,12 +379,11 @@
             this.dataGridViewTextBoxColumn1,
             this.Nome,
             this.BirthDate,
-            this.ImgUrl,
-            this.AverageScore});
+            this.ImgUrl});
             dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
@@ -431,6 +408,17 @@
             this.dataGridView2.Size = new System.Drawing.Size(776, 145);
             this.dataGridView2.TabIndex = 89;
             this.dataGridView2.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellDoubleClick);
+            // 
+            // labelResult
+            // 
+            this.labelResult.AutoSize = true;
+            this.labelResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelResult.ForeColor = System.Drawing.Color.White;
+            this.labelResult.Location = new System.Drawing.Point(12, 629);
+            this.labelResult.Name = "labelResult";
+            this.labelResult.Size = new System.Drawing.Size(61, 20);
+            this.labelResult.TabIndex = 90;
+            this.labelResult.Text = "Result";
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -458,41 +446,58 @@
             this.ImgUrl.Name = "ImgUrl";
             this.ImgUrl.ReadOnly = true;
             // 
-            // AverageScore
+            // Id
             // 
-            this.AverageScore.HeaderText = "AverageScore";
-            this.AverageScore.Name = "AverageScore";
-            this.AverageScore.ReadOnly = true;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Id.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Id.HeaderText = "Id";
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
             // 
-            // labelResult
+            // ReviewText
             // 
-            this.labelResult.AutoSize = true;
-            this.labelResult.Location = new System.Drawing.Point(12, 629);
-            this.labelResult.Name = "labelResult";
-            this.labelResult.Size = new System.Drawing.Size(37, 13);
-            this.labelResult.TabIndex = 90;
-            this.labelResult.Text = "Result";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.ReviewText.DefaultCellStyle = dataGridViewCellStyle3;
+            this.ReviewText.HeaderText = "ReviewText";
+            this.ReviewText.Name = "ReviewText";
+            this.ReviewText.ReadOnly = true;
             // 
-            // label2
+            // Moment
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(209, 188);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(114, 20);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "Average Score";
+            this.Moment.HeaderText = "Moment";
+            this.Moment.Name = "Moment";
+            this.Moment.ReadOnly = true;
+            // 
+            // Score
+            // 
+            this.Score.HeaderText = "Score";
+            this.Score.Name = "Score";
+            this.Score.ReadOnly = true;
+            // 
+            // UserId
+            // 
+            this.UserId.HeaderText = "UserId";
+            this.UserId.Name = "UserId";
+            this.UserId.ReadOnly = true;
+            // 
+            // ReviewId
+            // 
+            this.ReviewId.HeaderText = "MusicId";
+            this.ReviewId.Name = "ReviewId";
+            this.ReviewId.ReadOnly = true;
             // 
             // frmMusicDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.ClientSize = new System.Drawing.Size(800, 654);
             this.Controls.Add(this.labelResult);
             this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.groupBox1);
+            this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -527,18 +532,7 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button btnSend;
         private System.Windows.Forms.TextBox txtReview;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ReviewText;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Moment;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Score;
-        private System.Windows.Forms.DataGridViewTextBoxColumn UserId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ReviewId;
         private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Nome;
-        private System.Windows.Forms.DataGridViewTextBoxColumn BirthDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ImgUrl;
-        private System.Windows.Forms.DataGridViewTextBoxColumn AverageScore;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.RadioButton rb5;
         private System.Windows.Forms.RadioButton rb4;
@@ -549,5 +543,15 @@
         private System.Windows.Forms.Button btnAddAsFavorite;
         private System.Windows.Forms.Label labelResult;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nome;
+        private System.Windows.Forms.DataGridViewTextBoxColumn BirthDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ImgUrl;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ReviewText;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Moment;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Score;
+        private System.Windows.Forms.DataGridViewTextBoxColumn UserId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ReviewId;
     }
 }

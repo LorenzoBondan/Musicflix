@@ -23,6 +23,7 @@ namespace Music_Flix.View.Details
             lblAuthorBirthdate.Text = author.birthDate.ToString();
             lblAverageScore.Text = authorRepository.GetMusicsReviewsAverageScore(authorId).ToString("N2");
 
+
             string imageUrl = author.imgUrl;
             string localImagePath = Path.Combine(Application.StartupPath, "images", " '" + author.name + "' '" + DateTime.Now.Ticks + "'.png"); // Caminho local para salvar a imagem
             try
@@ -47,6 +48,9 @@ namespace Music_Flix.View.Details
             dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(234, 234, 234);
             dataGridView2.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(234, 234, 234);
             dataGridView3.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(234, 234, 234);
+            dataGridView1.AlternatingRowsDefaultCellStyle.ForeColor = Color.Black;
+            dataGridView2.AlternatingRowsDefaultCellStyle.ForeColor = Color.Black;
+            dataGridView3.AlternatingRowsDefaultCellStyle.ForeColor = Color.Black;
             // Linha selecionada
             dataGridView1.DefaultCellStyle.SelectionBackColor = Color.FromArgb(230, 125, 33);
             dataGridView1.DefaultCellStyle.SelectionForeColor = Color.White;
@@ -54,6 +58,10 @@ namespace Music_Flix.View.Details
             dataGridView2.DefaultCellStyle.SelectionForeColor = Color.White;
             dataGridView3.DefaultCellStyle.SelectionBackColor = Color.FromArgb(230, 125, 33);
             dataGridView3.DefaultCellStyle.SelectionForeColor = Color.White;
+
+            dataGridView1.DefaultCellStyle.ForeColor = Color.FromArgb(75, 75, 75);
+            dataGridView2.DefaultCellStyle.ForeColor = Color.FromArgb(75, 75, 75);
+            dataGridView3.DefaultCellStyle.ForeColor = Color.FromArgb(75, 75, 75);
 
             // Fonte
             //dataGridView2.DefaultCellStyle.Font = new Font("Century Gothic",8);
@@ -135,6 +143,11 @@ namespace Music_Flix.View.Details
             {
                 MessageBox.Show("Ocorreu um erro: " + ex.Message);
             }
+        }
+
+        private void groupBox5_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

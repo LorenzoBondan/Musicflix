@@ -26,7 +26,9 @@ namespace Music_Flix.View.Login
                 repository.Insert(user, labelResult: labelResult);
                 MessageBox.Show("Usuário cadastrado com sucesso.");
                 Close();
-            } catch {
+            }
+            catch
+            {
                 MessageBox.Show("Erro ao cadastrar o usuário.");
             }
         }

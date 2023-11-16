@@ -79,5 +79,15 @@ namespace Music_Flix
             frmLogin frmLogin = new frmLogin();
             frmLogin.Show();
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

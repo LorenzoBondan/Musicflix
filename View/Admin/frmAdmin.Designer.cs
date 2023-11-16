@@ -149,10 +149,11 @@
             this.groupBox2.Size = new System.Drawing.Size(258, 245);
             this.groupBox2.TabIndex = 104;
             this.groupBox2.TabStop = false;
+            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.panel1.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -163,16 +164,20 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(113, 13);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(91, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(62, 13);
+            this.label1.Size = new System.Drawing.Size(105, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "Admin Form";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // frmAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.ClientSize = new System.Drawing.Size(288, 309);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.groupBox2);

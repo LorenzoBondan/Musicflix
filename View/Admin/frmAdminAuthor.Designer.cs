@@ -62,16 +62,18 @@
             // labelResultado
             // 
             this.labelResultado.AutoSize = true;
-            this.labelResultado.ForeColor = System.Drawing.Color.Green;
-            this.labelResultado.Location = new System.Drawing.Point(9, 76);
+            this.labelResultado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelResultado.ForeColor = System.Drawing.Color.Chartreuse;
+            this.labelResultado.Location = new System.Drawing.Point(9, 69);
             this.labelResultado.Name = "labelResultado";
-            this.labelResultado.Size = new System.Drawing.Size(77, 13);
+            this.labelResultado.Size = new System.Drawing.Size(129, 20);
             this.labelResultado.TabIndex = 96;
             this.labelResultado.Text = "labelResultado";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.Color.White;
             this.label4.Location = new System.Drawing.Point(485, 22);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(37, 13);
@@ -81,6 +83,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(311, 22);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(54, 13);
@@ -90,6 +93,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(8, 22);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(35, 13);
@@ -112,6 +116,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.groupBox1.Controls.Add(this.txtBirthDate);
             this.groupBox1.Controls.Add(this.labelResultado);
             this.groupBox1.Controls.Add(this.label4);
@@ -138,6 +143,7 @@
             // 
             // btnEditar
             // 
+            this.btnEditar.ForeColor = System.Drawing.Color.Black;
             this.btnEditar.Location = new System.Drawing.Point(346, 92);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(304, 23);
@@ -148,6 +154,7 @@
             // 
             // btnExcluir
             // 
+            this.btnExcluir.ForeColor = System.Drawing.Color.Black;
             this.btnExcluir.Location = new System.Drawing.Point(683, 92);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(304, 23);
@@ -158,6 +165,7 @@
             // 
             // btnInserir
             // 
+            this.btnInserir.ForeColor = System.Drawing.Color.Black;
             this.btnInserir.Location = new System.Drawing.Point(6, 92);
             this.btnInserir.Name = "btnInserir";
             this.btnInserir.Size = new System.Drawing.Size(304, 23);
@@ -169,9 +177,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(43, 13);
+            this.label1.Size = new System.Drawing.Size(72, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "Authors";
             // 
@@ -263,6 +273,7 @@
             // 
             // panel2
             // 
+            this.panel2.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.panel2.Controls.Add(this.dataGridView1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 49);
@@ -272,21 +283,25 @@
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(999, 49);
             this.panel1.TabIndex = 97;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // frmAdminAuthor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.ClientSize = new System.Drawing.Size(999, 441);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;

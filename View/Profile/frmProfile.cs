@@ -36,11 +36,16 @@ namespace Music_Flix.View.Profile
             // Linhas alternadas
             dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(234, 234, 234);
             dataGridView2.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(234, 234, 234);
+            dataGridView1.AlternatingRowsDefaultCellStyle.ForeColor = Color.Black;
+            dataGridView2.AlternatingRowsDefaultCellStyle.ForeColor = Color.Black;
             // Linha selecionada
             dataGridView1.DefaultCellStyle.SelectionBackColor = Color.FromArgb(230, 125, 33);
             dataGridView2.DefaultCellStyle.SelectionBackColor = Color.FromArgb(230, 125, 33);
             dataGridView1.DefaultCellStyle.SelectionForeColor = Color.White;
             dataGridView2.DefaultCellStyle.SelectionForeColor = Color.White;
+
+            dataGridView1.DefaultCellStyle.ForeColor = Color.FromArgb(75, 75, 75);
+            dataGridView2.DefaultCellStyle.ForeColor = Color.FromArgb(75, 75, 75);
 
             // Fonte
             //dataGridView2.DefaultCellStyle.Font = new Font("Century Gothic",8);

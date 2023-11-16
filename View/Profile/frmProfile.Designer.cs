@@ -95,7 +95,7 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.BackColor = System.Drawing.SystemColors.Control;
+            this.groupBox2.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.groupBox2.Controls.Add(this.lblEmail);
             this.groupBox2.Controls.Add(this.lblName);
             this.groupBox2.Controls.Add(this.btnUpdateImage);
@@ -110,6 +110,7 @@
             // lblEmail
             // 
             this.lblEmail.AutoSize = true;
+            this.lblEmail.ForeColor = System.Drawing.Color.White;
             this.lblEmail.Location = new System.Drawing.Point(14, 44);
             this.lblEmail.Name = "lblEmail";
             this.lblEmail.Size = new System.Drawing.Size(31, 13);
@@ -119,6 +120,7 @@
             // lblName
             // 
             this.lblName.AutoSize = true;
+            this.lblName.ForeColor = System.Drawing.Color.White;
             this.lblName.Location = new System.Drawing.Point(14, 20);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(33, 13);
@@ -127,6 +129,7 @@
             // 
             // btnUpdateImage
             // 
+            this.btnUpdateImage.ForeColor = System.Drawing.Color.Black;
             this.btnUpdateImage.Location = new System.Drawing.Point(14, 96);
             this.btnUpdateImage.Name = "btnUpdateImage";
             this.btnUpdateImage.Size = new System.Drawing.Size(259, 23);
@@ -138,6 +141,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(11, 73);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(40, 13);
@@ -384,11 +388,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.ClientSize = new System.Drawing.Size(935, 576);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;

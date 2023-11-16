@@ -182,6 +182,17 @@ namespace Music_Flix.Repositories
                 
                 comando.Dispose();
             }
+            catch (SqlCeException ex)
+            {
+                if (ex.Errors.Count > 0 && ex.Errors[0].NativeError == 25016 && labelResult != null) // NativeError 25016 é a violação de UNIQUE constraint no SqlCe
+                {
+                    labelResult.Text = "E-mail já cadastrado. Por favor, escolha outro e-mail.";
+                }
+                else
+                {
+                    labelResult.Text = ex.Message;
+                }
+            }
             catch (Exception ex)
             {
                 if (labelResult != null)
