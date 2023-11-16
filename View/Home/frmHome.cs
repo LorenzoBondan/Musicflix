@@ -21,6 +21,8 @@ namespace Music_Flix.View.Home
 
         public frmHome(User user)
         {
+            VerifyAndCreateFolder("images");
+            VerifyAndCreateFolder("logo");
             userLogged = user;
             InitializeComponent();
             FillStyleComboBox(cbStyle);
@@ -157,18 +159,34 @@ namespace Music_Flix.View.Home
             frmAdmin.Show();
         }
 
-        private void dataGridView1_CellDoubleClick_1(object sender, DataGridViewCellEventArgs e)
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             try
             {
                 frmMusicDetails f = new frmMusicDetails((int)dataGridView1.SelectedRows[0].Cells[0].Value, userLogged.id);
                 f.Show();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                //
+                MessageBox.Show($"Error: {ex.Message}");
             }
 
+        }
+
+        public static void VerifyAndCreateFolder(string folderName)
+        {
+            string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, folderName);
+
+            if (!Directory.Exists(path))
+            {
+                try
+                {
+                    Directory.CreateDirectory(path);
+                }
+                catch (Exception ex)
+                {
+                }
+            }
         }
     }
 }

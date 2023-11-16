@@ -47,7 +47,7 @@ namespace Music_Flix.View.Details
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro ao carregar a imagem: " + ex.Message);
+                MessageBox.Show("Erro ao carregar a imagem:  " + ex.Message);
             }
 
             FillAuthorsDataGridView(music.authorsIds, dataGridView2);
@@ -86,7 +86,7 @@ namespace Music_Flix.View.Details
             dataGridView2.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(211, 84, 21);
             dataGridView2.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
             #endregion
-            
+            this.Show();
         }
         public void FillAuthorsDataGridView(List<long> authorsIds, DataGridView dataGridView)
         {
@@ -196,7 +196,7 @@ namespace Music_Flix.View.Details
                 pictureBox.Height = 23;
                 pictureBox.Location = new Point(330 + (i * (pictureBox.Width + spacingX)), 185);
 
-                string caminho = Application.StartupPath + @"\logo\star.png";
+                string caminho = Application.StartupPath + @"\star.png";
                 pictureBox.Image = Image.FromFile(caminho);
                 pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
 
